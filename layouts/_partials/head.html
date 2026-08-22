@@ -30,6 +30,9 @@
     {{ end }}
   {{ end }}
 
+  <!-- Archivo is self-hosted (see static/fonts/, VENDORED_ASSETS.md) instead of
+       loaded from Google Fonts, to avoid sending visitor IPs to Google on every
+       page load. -->
   <link rel="preload" href="{{ "fonts/archivo-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 
