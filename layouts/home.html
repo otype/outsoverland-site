@@ -1,0 +1,94 @@
+{{ define "main" }}
+{{ $p := .Params }}
+
+<section class="hero">
+  <div class="sky" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="horizon"></div>
+    <div class="ground"></div>
+  </div>
+
+  <div class="hero-inner">
+    <p class="eyebrow">{{ $p.hero.eyebrow }}</p>
+    <h1 class="hero-title">
+      <span class="wordmark">OUTS</span>
+      <span class="wordmark-sub">Overland</span>
+    </h1>
+    <p class="hero-tagline">{{ $p.hero.tagline }}</p>
+    <p class="hero-note">{{ $p.hero.note }}</p>
+  </div>
+
+  <a class="scroll-cue" href="#letters" aria-label="{{ i18n "scrollDown" }}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<section class="letters" id="letters">
+  <div class="block-inner">
+    <ol class="letter-grid">
+      {{ range $p.letters }}
+      <li class="letter">
+        <span class="letter-glyph" aria-hidden="true">{{ .letter }}</span>
+        <h2 class="letter-word">{{ .word }}</h2>
+        <p class="letter-line">{{ .line }}</p>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
+
+<section class="prose-block" id="about">
+  <div class="block-inner">
+    <p class="kicker">{{ $p.about.kicker }}</p>
+    <h2>{{ $p.about.heading }}</h2>
+    {{ $p.about.body | markdownify }}
+  </div>
+</section>
+
+<section class="rig" id="rig">
+  <div class="block-inner rig-inner">
+    <div>
+      <p class="kicker">{{ $p.rig.kicker }}</p>
+      <h2>{{ $p.rig.heading }}</h2>
+      {{ $p.rig.body | markdownify }}
+    </div>
+    <dl class="rig-specs">
+      {{ range $p.rig.specs }}
+      <div>
+        <dt>{{ .k }}</dt>
+        <dd>{{ .v }}</dd>
+      </div>
+      {{ end }}
+    </dl>
+  </div>
+</section>
+
+<section class="follow" id="follow">
+  <div class="block-inner">
+    <p class="kicker">{{ $p.follow.kicker }}</p>
+    <h2>{{ $p.follow.heading }}</h2>
+    <p class="follow-intro">{{ $p.follow.intro }}</p>
+
+    <ul class="channels">
+      {{ range site.Params.social }}
+      <li>
+        {{ if .enabled }}
+        <a class="channel is-live" href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>
+          {{ partial "icon.html" .icon }}
+          <span class="channel-name">{{ .name }}</span>
+          <span class="channel-state">{{ i18n "open" }}</span>
+        </a>
+        {{ else }}
+        <span class="channel is-soon" aria-disabled="true">
+          {{ partial "icon.html" .icon }}
+          <span class="channel-name">{{ .name }}</span>
+          <span class="channel-state">{{ i18n "comingSoon" }}</span>
+        </span>
+        {{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
