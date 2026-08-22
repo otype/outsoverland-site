@@ -72,10 +72,25 @@ other language.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds and publishes on every push to `main`.
-The Hugo version is pinned in that file (`HUGO_VERSION`) — bump it there.
+A GitHub Actions workflow builds and publishes on every push to `main`. The
+Hugo version is pinned in it (`HUGO_VERSION`) — bump it there.
 
-**One-time setup in the repo settings:** Settings → Pages → Build and
+**The workflow is not in place yet.** It sits at `ci/pages-deploy.yml`
+because the token used to create this branch lacked GitHub's `workflow`
+scope, which is required to write anything under `.github/workflows/`. Move
+it with your own credentials:
+
+```sh
+mkdir -p .github/workflows
+git mv ci/pages-deploy.yml .github/workflows/deploy.yml
+rmdir ci
+git commit -m "Move Pages deploy workflow into place"
+```
+
+(Delete the explanatory comment block at the top of the file while you're
+there — it's only a signpost.)
+
+**Then, one-time in the repo settings:** Settings → Pages → Build and
 deployment → Source: **GitHub Actions**. Without this the workflow builds
 fine but has nothing to publish to.
 
