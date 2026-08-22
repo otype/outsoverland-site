@@ -1,14 +1,3 @@
-# ---------------------------------------------------------------------------
-# This file belongs at .github/workflows/deploy.yml — it does nothing here.
-#
-#     git mv ci/pages-deploy.yml .github/workflows/deploy.yml
-#     rmdir ci && git commit -m "Move Pages deploy workflow into place"
-#
-# It is parked here because the token that created this branch lacks the
-# GitHub `workflow` scope and cannot write under .github/workflows/.
-# Your own credentials can. See README → Deployment.
-# ---------------------------------------------------------------------------
-
 name: Deploy to GitHub Pages
 
 on:
