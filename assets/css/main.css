@@ -28,10 +28,9 @@
 :root {
   --paper:    #FBF6EC;   /* day, base ground */
   --paper-2:  #F2E9D9;   /* raised surface */
-  --sky:      #CFE7F2;   /* high day sky */
-  --ember:    #A83A1A;   /* low sun */
-  --sun:      #A65008;   /* the sun itself */
-  --sun-hi:   #FFEFD2;   /* highlight */
+  --sky:      #D8E7F0;   /* high day sky */
+  --ember:    #A83A1A;   /* deep rust, dark enough to set as text */
+  --sun:      #A65008;   /* amber accent, dark enough to set as text */
   --ink:      #1B140F;   /* primary text */
   --dust:     #7A6C55;   /* secondary text */
   --line:     rgba(27, 20, 15, 0.12);
@@ -120,15 +119,19 @@ a:hover { color: var(--ember); text-decoration-color: currentColor; }
 
 .sky { position: absolute; inset: 0; z-index: -1; }
 
-/* the sky above the horizon */
+/* The sky above the horizon. The glow stops are literals rather than --sun and
+   --ember on purpose: those two are held dark enough to pass contrast as text on
+   --paper, and a dark stop dropped into a light sky reads as a band of dirt
+   rather than a sunrise. Brightness has to fall gently from the horizon upward —
+   no step here is larger than the original dark theme's steepest (0.272). */
 .sky::before {
   content: ''; position: absolute; inset: 0 0 var(--horizon-y) 0;
   background:
     radial-gradient(125% 92% at 50% 100%,
-      var(--sun-hi) 0%,
-      var(--sun) 11%,
-      var(--ember) 27%,
-      #F6D9B8 50%,
+      #FFF2D8 0%,
+      #FFD08A 11%,
+      #F5A65E 27%,
+      #EFC9A8 50%,
       var(--sky) 75%,
       var(--paper) 100%);
 }
@@ -141,24 +144,24 @@ a:hover { color: var(--ember); text-decoration-color: currentColor; }
   transform: translate(-50%, 50%);
   border-radius: 50%;
   background: radial-gradient(circle at 50% 50%,
-    #FFFDF6 0%, var(--sun-hi) 40%, var(--sun) 66%, rgba(166,80,8,0) 70%);
+    #FFFDF4 0%, #FFE9B6 40%, #FFC578 66%, rgba(255,197,120,0) 70%);
   opacity: .9;
 }
 
 .horizon {
   position: absolute; left: 0; right: 0; bottom: var(--horizon-y); height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(166,80,8,.55) 20%, rgba(166,80,8,.55) 80%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(186,104,40,.45) 20%, rgba(186,104,40,.45) 80%, transparent);
 }
 
 /* the ground under the sun */
 .ground {
   position: absolute; inset: auto 0 0 0; height: var(--horizon-y);
-  background: linear-gradient(180deg, #EAD9BC 0%, #F4E7CE 45%, var(--paper) 100%);
+  background: linear-gradient(180deg, #E6D3B2 0%, #F2E3C8 45%, var(--paper) 100%);
 }
 .ground::after {
   /* faint trail texture */
   content: ''; position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(90deg, rgba(27,20,15,.06) 0 1px, transparent 1px 84px);
+  background-image: repeating-linear-gradient(90deg, rgba(27,20,15,.07) 0 1px, transparent 1px 84px);
   mask-image: linear-gradient(180deg, rgba(0,0,0,.7), transparent 60%);
   -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.7), transparent 60%);
 }
