@@ -1,0 +1,74 @@
+baseURL = "https://outsoverland.com/"
+title = "OUTS Overland"
+enableRobotsTXT = true
+
+# No tags or categories yet — turn these back on when there's a blog.
+disableKinds = ["taxonomy", "term"]
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[params]
+  # Shown in <meta> tags and structured data.
+  author = "Hans"
+  # Swap in a 1200x630 image at static/img/ when you have one.
+  ogImage = "img/og.png"
+
+# Social channels. Set `enabled = true` and fill in `url` as each account
+# goes live; until then the card renders as "coming soon".
+[[params.social]]
+  name = "YouTube"
+  icon = "youtube"
+  url = ""
+  enabled = false
+
+[[params.social]]
+  name = "Instagram"
+  icon = "instagram"
+  url = ""
+  enabled = false
+
+[[params.social]]
+  name = "Email"
+  icon = "mail"
+  url = "mailto:hallo@outsoverland.com"
+  enabled = true
+
+[languages]
+  [languages.en]
+    languageName = "EN"
+    languageCode = "en"
+    weight = 1
+    title = "OUTS Overland"
+    [languages.en.params]
+      description = "Over & Under The Sun — overlanding trips and trail notes from a Jeep Gladiator."
+    [[languages.en.menus.footer]]
+      name = "Legal notice"
+      pageRef = "/legal-notice"
+      weight = 1
+    [[languages.en.menus.footer]]
+      name = "Privacy"
+      pageRef = "/privacy"
+      weight = 2
+
+  [languages.de]
+    languageName = "DE"
+    languageCode = "de"
+    weight = 2
+    title = "OUTS Overland"
+    [languages.de.params]
+      description = "Over & Under The Sun — Overlanding-Touren und Notizen von der Piste, unterwegs im Jeep Gladiator."
+    [[languages.de.menus.footer]]
+      name = "Impressum"
+      pageRef = "/legal-notice"
+      weight = 1
+    [[languages.de.menus.footer]]
+      name = "Datenschutz"
+      pageRef = "/privacy"
+      weight = 2
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[minify]
+  minifyOutput = true

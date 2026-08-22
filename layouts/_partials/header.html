@@ -1,0 +1,26 @@
+<header class="site-head">
+  <a class="brand" href="{{ "" | relLangURL }}">
+    {{ partial "mark.html" . }}
+    <span class="brand-name">OUTS<span class="brand-dim"> Overland</span></span>
+  </a>
+
+  {{ if gt (len site.Languages) 1 }}
+  <nav class="lang" aria-label="{{ i18n "language" }}">
+    {{ range site.Languages }}
+      {{ $lang := . }}
+      {{ $target := "" }}
+      {{ if eq $lang.Lang $.Language.Lang }}
+        {{ $target = $.Permalink }}
+      {{ else }}
+        {{ range $.AllTranslations }}
+          {{ if eq .Language.Lang $lang.Lang }}{{ $target = .Permalink }}{{ end }}
+        {{ end }}
+      {{ end }}
+      {{ if $target }}
+        <a href="{{ $target }}" hreflang="{{ $lang.LanguageCode }}"
+           {{ if eq $lang.Lang $.Language.Lang }}aria-current="true"{{ end }}>{{ $lang.LanguageName }}</a>
+      {{ end }}
+    {{ end }}
+  </nav>
+  {{ end }}
+</header>
