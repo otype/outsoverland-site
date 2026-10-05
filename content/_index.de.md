@@ -60,9 +60,8 @@ me:
   heading: "Hans"
   photoAlt: "Hans mit Brille im grauen T-Shirt, hinter ihm ein grünes Tal und Berggipfel an der Bonaigua-Passstraße in den Pyrenäen"
   body: |
-    Ich bin Hans. Beruflich bin ich Sr. Director of Engineering und Head of
-    Content bei Meltwater — hier schreibe ich auf, was auf den Touren mit
-    Shadow passiert: die Strecken, die Ausrüstung und die Pannen dazwischen.
+    Ich bin Hans. Beruflich habe ich bei Meltwater mit Content im Internet
+    zu tun — hier schreibe ich auf, was auf den Touren mit Shadow passiert: die Strecken, die Ausrüstung und die Pannen dazwischen.
 
     Overlanding und Coding sind beides Leidenschaften von mir. Die eine
     findet hier statt, mehr zur anderen gibt es auf [otype.de](https://otype.de).

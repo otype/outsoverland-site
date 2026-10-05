@@ -59,8 +59,8 @@ me:
   heading: "Hans"
   photoAlt: "Hans in glasses and a grey T-shirt, a green valley and mountain peaks behind him on the Bonaigua pass road in the Pyrenees"
   body: |
-    I'm Hans. By day I'm Sr. Director of Engineering and Head of Content at
-    Meltwater — here I write down what happens on the trips with Shadow:
+    I'm Hans. For work I deal with content on the internet at Meltwater —
+    here I write down what happens on the trips with Shadow:
     the routes, the gear and the breakdowns in between.
 
     Overlanding and coding are both passions of mine. One of them lives
