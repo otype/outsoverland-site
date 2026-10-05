@@ -1,34 +1,24 @@
 <header class="site-head">
-  <div class="site-head-inner">
-    <a class="brand" href="{{ "" | relLangURL }}">
-      {{ partial "mark.html" . }}
-      <span class="brand-name">OUTS<span class="brand-dim"> Overland</span></span>
-    </a>
+  <a class="brand" href="{{ "" | relLangURL }}">
+    {{ partial "mark.html" . }}
+    <span class="wordmark"><b>OUTS</b> <span>OVERLAND</span></span>
+  </a>
 
-    <nav class="site-nav" aria-label="Hauptnavigation">
-      <a href="#touren">{{ i18n "navTouren" | default "Touren" }}</a>
-      <a href="#rig">{{ i18n "navShadow" | default "Shadow" }}</a>
-      <a href="#follow">{{ i18n "navKanaele" | default "Kanäle" }}</a>
-    </nav>
+  <nav class="site-nav" aria-label="{{ i18n "mainNav" }}">
+    {{ $base := cond .IsHome "" ("" | relLangURL) }}
+    <a href="{{ $base }}#touren">{{ i18n "navTouren" }}</a>
+    <a href="{{ $base }}#rig">{{ i18n "navShadow" }}</a>
+    <a href="{{ $base }}#follow">{{ i18n "navKanaele" }}</a>
 
     {{ if gt (len site.Languages) 1 }}
-    <nav class="lang" aria-label="{{ i18n "language" }}">
-      {{ range site.Languages }}
-        {{ $lang := . }}
-        {{ $target := "" }}
-        {{ if eq $lang.Lang $.Language.Lang }}
-          {{ $target = $.Permalink }}
-        {{ else }}
-          {{ range $.AllTranslations }}
-            {{ if eq .Language.Lang $lang.Lang }}{{ $target = .Permalink }}{{ end }}
-          {{ end }}
-        {{ end }}
-        {{ if $target }}
-          <a href="{{ $target }}" hreflang="{{ $lang.LanguageCode }}"
-             {{ if eq $lang.Lang $.Language.Lang }}aria-current="true"{{ end }}>{{ $lang.LanguageName }}</a>
-        {{ end }}
+    {{/* Aktuelle Sprache zuerst (in Sonne), dann die Übersetzungen als Links. */}}
+    <span class="lang">
+      <span aria-current="true">{{ .Language.LanguageName }}</span>
+      {{ range .Translations }}
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <a href="{{ .RelPermalink }}" hreflang="{{ .Language.LanguageCode }}" lang="{{ .Language.LanguageCode }}">{{ .Language.LanguageName }}</a>
       {{ end }}
-    </nav>
+    </span>
     {{ end }}
-  </div>
+  </nav>
 </header>

@@ -1,14 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0B0B0C"/>
-  <clipPath id="c">
-    <circle cx="16" cy="16" r="12"/>
-  </clipPath>
-  <!-- Halbkreis Sonne -->
-  <path d="M4 16 A12 12 0 0 1 28 16 Z" fill="#F5A30A"/>
-  <!-- 3 eckige Streifen, durch Kreis geclippt -->
-  <g clip-path="url(#c)">
-    <rect x="4" y="17.5" width="24" height="3.5" fill="#F5A30A"/>
-    <rect x="4" y="22.5" width="24" height="3.5" fill="#F5A30A"/>
-    <rect x="4" y="27.5" width="24" height="3.5" fill="#F5A30A"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" fill="#0B0B0C"/>
+  <g fill="#F5A30A">
+    <path d="M16 58 A44 44 0 0 1 104 58 Z"/>
+    <rect x="16.6" y="66" width="86.8" height="7"/>
+    <rect x="20.8" y="79" width="78.4" height="6"/>
+    <rect x="29.3" y="91" width="61.4" height="5"/>
+    <rect x="42.8" y="101" width="34.4" height="3"/>
   </g>
 </svg>

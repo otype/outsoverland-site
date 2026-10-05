@@ -1,6 +1,7 @@
 ---
 title: "OUTS Overland"
 hero:
+  title: "Over and under<br>the sun."
   tagline: "Overlanding trips across Europe, trail notes and one black Jeep Gladiator called Shadow that always finds the long way round."
 
 letters:
