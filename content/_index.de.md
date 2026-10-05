@@ -60,8 +60,11 @@ me:
   heading: "Hans"
   photoAlt: "Hans mit Brille im grauen T-Shirt, hinter ihm ein grünes Tal und Berggipfel an der Bonaigua-Passstraße in den Pyrenäen"
   body: |
-    Ich bin Hans, fahre Shadow und schreibe hier auf, was auf den Touren
-    passiert: die Strecken, die Ausrüstung und die Pannen dazwischen.
+    Ich bin Hans. Beruflich habe ich bei Meltwater mit Content im Internet
+    zu tun — hier schreibe ich auf, was auf den Touren mit Shadow passiert: die Strecken, die Ausrüstung und die Pannen dazwischen.
+
+    Overlanding und Coding sind beides Leidenschaften von mir. Die eine
+    findet hier statt, mehr zur anderen gibt es auf [otype.de](https://otype.de).
 
     Zu Hause in Deutschland, unterwegs selten allein — auf der ersten großen
     Tour in die Pyrenäen fuhr ein Kumpel im Land Rover Defender D110 mit,

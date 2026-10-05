@@ -59,8 +59,12 @@ me:
   heading: "Hans"
   photoAlt: "Hans in glasses and a grey T-shirt, a green valley and mountain peaks behind him on the Bonaigua pass road in the Pyrenees"
   body: |
-    I'm Hans. I drive Shadow and write down what happens on the trips:
+    I'm Hans. For work I deal with content on the internet at Meltwater —
+    here I write down what happens on the trips with Shadow:
     the routes, the gear and the breakdowns in between.
+
+    Overlanding and coding are both passions of mine. One of them lives
+    here; for more on the other, head to [otype.de](https://otype.de).
 
     Home is Germany, and I rarely travel alone — on the first big trip, to
     the Pyrenees, a friend came along in his Land Rover Defender D110,
