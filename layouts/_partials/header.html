@@ -1,32 +1,34 @@
 <header class="site-head">
-  <a class="brand" href="{{ "" | relLangURL }}">
-    {{ partial "mark.html" . }}
-    <span class="brand-name">OUTS<span class="brand-dim"> Overland</span></span>
-  </a>
+  <div class="site-head-inner">
+    <a class="brand" href="{{ "" | relLangURL }}">
+      {{ partial "mark.html" . }}
+      <span class="brand-name">OUTS<span class="brand-dim"> Overland</span></span>
+    </a>
 
-  <nav class="site-nav" aria-label="Hauptnavigation">
-    <a href="#touren">{{ i18n "navTouren" | default "Touren" }}</a>
-    <a href="#rig">{{ i18n "navShadow" | default "Shadow" }}</a>
-    <a href="#follow">{{ i18n "navKanaele" | default "Kanäle" }}</a>
-  </nav>
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="#touren">{{ i18n "navTouren" | default "Touren" }}</a>
+      <a href="#rig">{{ i18n "navShadow" | default "Shadow" }}</a>
+      <a href="#follow">{{ i18n "navKanaele" | default "Kanäle" }}</a>
+    </nav>
 
-  {{ if gt (len site.Languages) 1 }}
-  <nav class="lang" aria-label="{{ i18n "language" }}">
-    {{ range site.Languages }}
-      {{ $lang := . }}
-      {{ $target := "" }}
-      {{ if eq $lang.Lang $.Language.Lang }}
-        {{ $target = $.Permalink }}
-      {{ else }}
-        {{ range $.AllTranslations }}
-          {{ if eq .Language.Lang $lang.Lang }}{{ $target = .Permalink }}{{ end }}
+    {{ if gt (len site.Languages) 1 }}
+    <nav class="lang" aria-label="{{ i18n "language" }}">
+      {{ range site.Languages }}
+        {{ $lang := . }}
+        {{ $target := "" }}
+        {{ if eq $lang.Lang $.Language.Lang }}
+          {{ $target = $.Permalink }}
+        {{ else }}
+          {{ range $.AllTranslations }}
+            {{ if eq .Language.Lang $lang.Lang }}{{ $target = .Permalink }}{{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if $target }}
+          <a href="{{ $target }}" hreflang="{{ $lang.LanguageCode }}"
+             {{ if eq $lang.Lang $.Language.Lang }}aria-current="true"{{ end }}>{{ $lang.LanguageName }}</a>
         {{ end }}
       {{ end }}
-      {{ if $target }}
-        <a href="{{ $target }}" hreflang="{{ $lang.LanguageCode }}"
-           {{ if eq $lang.Lang $.Language.Lang }}aria-current="true"{{ end }}>{{ $lang.LanguageName }}</a>
-      {{ end }}
+    </nav>
     {{ end }}
-  </nav>
-  {{ end }}
+  </div>
 </header>
