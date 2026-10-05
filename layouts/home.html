@@ -88,6 +88,17 @@
   </div>
 </section>
 
+<section class="me wrap" id="ueber-mich">
+  <div>
+    <p class="eyebrow">{{ $p.me.kicker }}</p>
+    <h2 class="shadow-title">{{ $p.me.heading }}</h2>
+    <div class="shadow-body">{{ $p.me.body | markdownify }}</div>
+  </div>
+  <img class="me-photo" src="{{ "images/hans-bonaigua.jpg" | relURL }}"
+       alt="{{ $p.me.photoAlt }}" width="1200" height="1500"
+       loading="lazy" decoding="async">
+</section>
+
 <section class="follow wrap" id="follow">
   <h2 class="section-title">{{ $p.follow.heading }}</h2>
   <p class="follow-intro">{{ $p.follow.intro }}</p>

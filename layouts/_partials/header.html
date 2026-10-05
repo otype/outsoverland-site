@@ -8,6 +8,7 @@
     {{ $base := cond .IsHome "" ("" | relLangURL) }}
     <a href="{{ $base }}#touren">{{ i18n "navTouren" }}</a>
     <a href="{{ $base }}#rig">{{ i18n "navShadow" }}</a>
+    <a href="{{ $base }}#ueber-mich">{{ i18n "navUeberMich" }}</a>
     <a href="{{ $base }}#follow">{{ i18n "navKanaele" }}</a>
 
     {{ if gt (len site.Languages) 1 }}

@@ -242,6 +242,20 @@ img.tour-img { display: block; width: 100%; height: auto; object-fit: cover; }
 .specs dt { color: var(--asche); }
 .specs dt:last-of-type, .specs dd:last-of-type { border-bottom: 1px solid var(--graphit); }
 
+/* ── ÜBER MICH ───────────────────────────────────────────── */
+/* Gegenstück zu Shadow: auf Schwarz, Foto rechts im Hochformat. */
+
+.me {
+  padding-top: 112px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px 56px;
+  align-items: center;
+}
+.me-photo {
+  display: block; width: 100%; max-width: 480px; height: auto; justify-self: end;
+  aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--graphit);
+}
+@media (max-width: 700px) { .me-photo { justify-self: start; } }
+
 /* ── KANÄLE ──────────────────────────────────────────────── */
 
 .follow { padding-top: 112px; }
