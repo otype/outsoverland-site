@@ -4,6 +4,12 @@
     <span class="brand-name">OUTS<span class="brand-dim"> Overland</span></span>
   </a>
 
+  <nav class="site-nav" aria-label="Hauptnavigation">
+    <a href="#touren">{{ i18n "navTouren" | default "Touren" }}</a>
+    <a href="#rig">{{ i18n "navShadow" | default "Shadow" }}</a>
+    <a href="#follow">{{ i18n "navKanaele" | default "Kanäle" }}</a>
+  </nav>
+
   {{ if gt (len site.Languages) 1 }}
   <nav class="lang" aria-label="{{ i18n "language" }}">
     {{ range site.Languages }}

@@ -1,23 +1,21 @@
 ---
 title: "OUTS Overland"
 hero:
-  eyebrow: "Over · Under · The · Sun"
-  tagline: "Overlanding-Touren, Notizen von der Piste und ein Jeep Gladiator, der zuverlässig den längeren Weg findet."
-  note: "Die Kanäle entstehen gerade. Hier laufen sie später alle zusammen."
+  tagline: "Overland-Touren quer durch Europa, Tourennotizen und ein schwarzer Jeep Gladiator namens Shadow, der immer den langen Weg außen herum findet."
 
 letters:
   - letter: "O"
     word: "Over"
-    line: "Über den Pass, über den nächsten Grat, über die Stelle auf der Karte, an der die Straße aufhört, eine zu sein."
+    line: "Über den Pass, über den nächsten Kamm, über den Teil der Karte, an dem die Straße aufhört, eine Straße zu sein."
   - letter: "U"
     word: "Under"
-    line: "Unter dem Zeltdach, unter Sternen, unter dem Auto — mit Stirnlampe und Ratsche."
+    line: "Unterm Zeltdach, unter den Sternen, unterm Auto mit Stirnlampe und Ratschenkasten."
   - letter: "T"
     word: "The"
-    line: "Der Umweg, die falsche Abzweigung, die lange Variante. Genau das, was die Tour ausmacht."
+    line: "Der Umweg, die falsche Abzweigung, der lange Weg außen herum. Das Stück, das die Tour erst ausmacht."
   - letter: "S"
     word: "Sun"
-    line: "Aufbruch im Morgengrauen, Camp zum Sonnenuntergang. Das Erinnerungswürdige passiert an den Rändern des Tages."
+    line: "Start bei Sonnenaufgang, Camp zum Sundowner. Alles, was hängen bleibt, passiert an einem Ende des Tages."
 
 about:
   kicker: "Worum es geht"
@@ -37,26 +35,27 @@ about:
 
 rig:
   kicker: "Das Fahrzeug"
-  heading: "Ein Jeep Gladiator, langsam auf dem Weg zu sich selbst"
+  heading: "Shadow"
   body: |
-    Jeder Overland-Aufbau ist ein laufender Streit zwischen Geländetauglichkeit,
-    Gewicht und dem Geld, das man lieber in Sprit stecken würde. Dieser hier steht
-    mitten in diesem Streit — und wird dort auch bleiben.
+    Getauft von meinen Söhnen: Shadow Trooper, kurz Shadow. Schwarz, wie alles, was an ihm hängt.
 
-    Eine vollständige Aufbauliste — was verbaut ist, was es gekostet hat, was ich
-    anders machen würde — kommt, sobald genug zusammen ist, das sich zu lesen lohnt.
+    Jeder Overland-Umbau ist ein Dauerstreit zwischen Geländetauglichkeit,
+    Gewicht und dem Geld, das man lieber in Sprit stecken würde. Dieser hier
+    steckt mittendrin.
   specs:
-    - k: "Basis"
-      v: "Jeep Gladiator"
-    - k: "Aufbau"
-      v: "Läuft"
-    - k: "Standort"
+    - k: "Plattform"
+      v: "Jeep Gladiator 3.0L Overland"
+    - k: "Edition"
+      v: "80th Anniversary"
+    - k: "Farbe"
+      v: "Schwarz. Was sonst."
+    - k: "Heimat"
       v: "Deutschland"
-    - k: "Aufbauliste"
-      v: "In Arbeit"
+    - k: "Build Sheet"
+      v: "folgt"
 
 follow:
   kicker: "Dranbleiben"
-  heading: "Die Kanäle"
-  intro: "YouTube und Instagram werden gerade eingerichtet. Sobald sie live sind, stehen sie zuerst hier — diese Seite bleibt die eine Adresse, die immer auf alles zeigt."
+  heading: "Kanäle"
+  intro: "YouTube und Instagram sind im Aufbau. Sobald sie live sind, stehen sie zuerst hier."
 ---

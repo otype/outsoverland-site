@@ -1,17 +1,24 @@
 {{ define "main" }}
 {{ $p := .Params }}
 
+{{/* ── HERO ───────────────────────────────────────────────── */}}
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <p class="eyebrow">{{ $p.hero.eyebrow }}</p>
+    <p class="eyebrow">OVER · UNDER · THE · SUN</p>
     <h1 class="hero-title">
-      <span class="wordmark">OUTS</span>
-      <span class="wordmark-sub">Overland</span>
+      {{- if eq site.Language.Lang "de" -}}
+        ÜBER UND UNTER<br>DER SONNE.
+      {{- else -}}
+        OVER AND UNDER<br>THE SUN.
+      {{- end -}}
     </h1>
     <p class="hero-tagline">{{ $p.hero.tagline }}</p>
-    <p class="hero-note">{{ $p.hero.note }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#touren">{{ i18n "toTouren" }}</a>
+      <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
+    </div>
   </div>
 
   <a class="scroll-cue" href="#letters" aria-label="{{ i18n "scrollDown" }}">
@@ -20,6 +27,7 @@
   </a>
 </section>
 
+{{/* ── OUTS LETTERS ────────────────────────────────────────── */}}
 <section class="letters" id="letters">
   <div class="block-inner">
     <ol class="letter-grid">
@@ -34,47 +42,83 @@
   </div>
 </section>
 
-<section class="prose-block" id="about">
+{{/* ── ÜBER UNS / ABOUT ────────────────────────────────────── */}}
+<section class="about" id="about">
   <div class="block-inner">
     <p class="kicker">{{ $p.about.kicker }}</p>
     <h2>{{ $p.about.heading }}</h2>
-    {{ $p.about.body | markdownify }}
+    <div class="prose-body">
+      {{ $p.about.body | markdownify }}
+    </div>
   </div>
 </section>
 
-<section class="rig" id="rig">
+{{/* ── TOUREN ──────────────────────────────────────────────── */}}
+<section class="touren" id="touren">
   <div class="block-inner">
-    {{/* Photo gallery — two real shots of the rig in the field */}}
-    <div class="rig-photos" aria-label="{{ i18n "rigPhotos" | default "The rig in the field" }}">
-      <img src="/images/shadow-village.jpg"
-           alt="{{ i18n "rigPhoto1Alt" | default "Jeep Gladiator Shadow parked in a stone-village alley" }}"
-           loading="lazy" decoding="async">
-      <img src="/images/shadow-trail.jpg"
-           alt="{{ i18n "rigPhoto2Alt" | default "Jeep Gladiator Shadow climbing a high-altitude mountain trail" }}"
-           loading="lazy" decoding="async">
+    <div class="touren-head">
+      <h2>{{ i18n "navTouren" | default "Touren" }}</h2>
+      <p class="touren-sub">{{ i18n "tourenSub" | default "Planung, Route, Ausrüstung, und was schiefging" }}</p>
     </div>
+    <div class="tour-grid">
+      <div class="tour-card tour-placeholder">
+        <div class="tour-img-wrap"><span class="tour-img-label">{{ i18n "fotoTour1" | default "FOTO · TOUR 01" }}</span></div>
+        <p class="tour-meta">{{ i18n "zeitraumKm" | default "[ZEITRAUM] · [KM]" }}</p>
+        <h3 class="tour-title">{{ i18n "tour1Title" | default "[TOUR 01 · ZIEL]" }}</h3>
+        <p class="tour-desc">{{ i18n "tour1Desc" | default "[Zwei Sätze zur Route und zu dem, was sie besonders gemacht hat.]" }}</p>
+      </div>
+      <div class="tour-card tour-placeholder">
+        <div class="tour-img-wrap"><span class="tour-img-label">{{ i18n "fotoTour2" | default "FOTO · TOUR 02" }}</span></div>
+        <p class="tour-meta">{{ i18n "zeitraumKm" | default "[ZEITRAUM] · [KM]" }}</p>
+        <h3 class="tour-title">{{ i18n "tour2Title" | default "[TOUR 02 · ZIEL]" }}</h3>
+        <p class="tour-desc">{{ i18n "tour2Desc" | default "[Zwei Sätze zur Route und zu dem, was sie besonders gemacht hat.]" }}</p>
+      </div>
+      <div class="tour-card tour-placeholder">
+        <div class="tour-img-wrap"><span class="tour-img-label">{{ i18n "fotoTour3" | default "FOTO · TOUR 03" }}</span></div>
+        <p class="tour-meta">{{ i18n "zeitraumKm" | default "[ZEITRAUM] · [KM]" }}</p>
+        <h3 class="tour-title">{{ i18n "tour3Title" | default "[TOUR 03 · ZIEL]" }}</h3>
+        <p class="tour-desc">{{ i18n "tour3Desc" | default "[Zwei Sätze zur Route und zu dem, was sie besonders gemacht hat.]" }}</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="rig-inner">
-      <div>
+{{/* ── SHADOW / RIG ────────────────────────────────────────── */}}
+<section class="shadow" id="rig">
+  <div class="block-inner">
+    <div class="shadow-layout">
+      {{/* Left col: photo */}}
+      <div class="shadow-photos">
+        <img src="/images/shadow-village.jpg"
+             alt="{{ i18n "rigPhoto1Alt" }}"
+             loading="lazy" decoding="async">
+        <img src="/images/shadow-trail.jpg"
+             alt="{{ i18n "rigPhoto2Alt" }}"
+             loading="lazy" decoding="async">
+      </div>
+
+      {{/* Right col: text + specs */}}
+      <div class="shadow-content">
         <p class="kicker">{{ $p.rig.kicker }}</p>
         <h2>{{ $p.rig.heading }}</h2>
-        {{ $p.rig.body | markdownify }}
+        <div class="prose-body">{{ $p.rig.body | markdownify }}</div>
+
+        <dl class="rig-specs">
+          {{ range $p.rig.specs }}
+          <div>
+            <dt>{{ .k }}</dt>
+            <dd>{{ .v }}</dd>
+          </div>
+          {{ end }}
+        </dl>
       </div>
-      <dl class="rig-specs">
-        {{ range $p.rig.specs }}
-        <div>
-          <dt>{{ .k }}</dt>
-          <dd>{{ .v }}</dd>
-        </div>
-        {{ end }}
-      </dl>
     </div>
   </div>
 </section>
 
+{{/* ── KANÄLE / FOLLOW ─────────────────────────────────────── */}}
 <section class="follow" id="follow">
   <div class="block-inner">
-    <p class="kicker">{{ $p.follow.kicker }}</p>
     <h2>{{ $p.follow.heading }}</h2>
     <p class="follow-intro">{{ $p.follow.intro }}</p>
 
@@ -83,14 +127,12 @@
       <li>
         {{ if .enabled }}
         <a class="channel is-live" href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>
-          {{ partial "icon.html" .icon }}
-          <span class="channel-name">{{ .name }}</span>
-          <span class="channel-state">{{ i18n "open" }}</span>
+          <span class="channel-name">{{ upper .name }}</span>
+          <span class="channel-state">{{ .url }}</span>
         </a>
         {{ else }}
         <span class="channel is-soon" aria-disabled="true">
-          {{ partial "icon.html" .icon }}
-          <span class="channel-name">{{ .name }}</span>
+          <span class="channel-name">{{ upper .name }}</span>
           <span class="channel-state">{{ i18n "comingSoon" }}</span>
         </span>
         {{ end }}
