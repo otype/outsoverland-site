@@ -1,162 +1,91 @@
 {{ define "main" }}
 {{ $p := .Params }}
 
-{{/* ── HERO ───────────────────────────────────────────────── */}}
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true"></div>
-
-  <div class="hero-inner">
-    {{/* Left: eyebrow + H1 + tagline */}}
-    <div class="hero-text">
-      <p class="eyebrow">OVER · UNDER · THE · SUN</p>
-      <h1 class="hero-title">
-        {{- if eq site.Language.Lang "de" -}}
-          ÜBER UND UNTER<br>DER SONNE.
-        {{- else -}}
-          OVER AND UNDER<br>THE SUN.
-        {{- end -}}
-      </h1>
-      <p class="hero-tagline">{{ $p.hero.tagline }}</p>
-    </div>
-
-    {{/* Right: CTAs + big decorative logo */}}
-    <div class="hero-right">
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#touren">{{ i18n "toTouren" }}</a>
-        <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
-      </div>
-      <div class="hero-logo-deco" aria-hidden="true">
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <!--
-              Sonnen-Icon: Kreis r=90, Mitte 100,100.
-              Obere Hälfte: Halbkreis (Sonne).
-              Untere Hälfte: 4 eckige Streifen, durch Kreis geclippt.
-              Der Äquator = exakt Mitte = die Trennlinie zwischen Hero + Letters.
-            -->
-            <clipPath id="deco-clip">
-              <circle cx="100" cy="100" r="90"/>
-            </clipPath>
-            <!-- Halbkreis Sonne (obere Hälfte) -->
-            <path d="M10 100 A90 90 0 0 1 190 100 Z" fill="currentColor"/>
-            <!-- 4 eckige Streifen, durch Kreis geclippt -->
-            <g clip-path="url(#deco-clip)">
-              <rect x="10" y="107" width="180" height="16" fill="currentColor"/>
-              <rect x="10" y="131" width="180" height="14" fill="currentColor"/>
-              <rect x="10" y="153" width="180" height="13" fill="currentColor"/>
-              <rect x="10" y="174" width="180" height="12" fill="currentColor"/>
-            </g>
-          </svg>
-      </div>
+<section class="hero wrap">
+  <p class="eyebrow">Over · Under · The · Sun</p>
+  <h1 class="hero-title">{{ $p.hero.title | safeHTML }}</h1>
+  <div class="hero-row">
+    <p class="hero-tagline">{{ $p.hero.tagline }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#touren">{{ i18n "toTouren" }}</a>
+      <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
     </div>
   </div>
 </section>
 
-{{/* ── OUTS LETTERS ────────────────────────────────────────── */}}
-<section class="letters" id="letters">
-  <div class="block-inner">
-    <ol class="letter-grid">
-      {{ range $p.letters }}
-      <li class="letter">
-        <span class="letter-glyph" aria-hidden="true">{{ .letter }}</span>
-        <h2 class="letter-word">{{ .word }}</h2>
-        <p class="letter-line">{{ .line }}</p>
-      </li>
-      {{ end }}
-    </ol>
+<div class="horizon" aria-hidden="true">
+  <span class="horizon-line"></span>
+  {{ partial "mark.html" . }}
+  <span class="horizon-line horizon-line-end"></span>
+</div>
+
+<section class="letters wrap" aria-label="{{ i18n "lettersLabel" }}">
+  {{ range $p.letters }}
+  <div class="letter">
+    <div class="letter-glyph" aria-hidden="true">{{ .letter }}</div>
+    <h2 class="letter-word">{{ .word }}</h2>
+    <p>{{ .line }}</p>
+  </div>
+  {{ end }}
+</section>
+
+<section class="about wrap" id="about">
+  <p class="eyebrow">{{ $p.about.kicker }}</p>
+  <h2 class="section-title">{{ $p.about.heading }}</h2>
+  <div class="about-body">{{ $p.about.body | markdownify }}</div>
+</section>
+
+<section class="touren wrap" id="touren">
+  <div class="section-head">
+    <h2 class="section-title">{{ i18n "navTouren" }}</h2>
+    <p class="section-sub">{{ i18n "tourenSub" }}</p>
+  </div>
+  <div class="tour-grid">
+    {{ range seq 3 }}
+    {{ $n := printf "%02d" . }}
+    <article class="tour">
+      <div class="tour-img">[{{ i18n "photo" }} · {{ i18n "tour" }} {{ $n }}]</div>
+      <p class="tour-meta">{{ i18n "tourMeta" }}</p>
+      <h3 class="tour-title">[{{ i18n "tour" }} {{ $n }} · {{ i18n "tourGoal" }}]</h3>
+      <p>{{ i18n "tourDesc" }}</p>
+    </article>
+    {{ end }}
   </div>
 </section>
 
-{{/* ── WORUM ES GEHT / ABOUT ───────────────────────────────── */}}
-<section class="about" id="about">
-  <div class="block-inner">
-    <p class="kicker">{{ $p.about.kicker }}</p>
-    <h2>{{ $p.about.heading }}</h2>
-    <div class="prose-body">
-      {{ $p.about.body | markdownify }}
-    </div>
-  </div>
-</section>
-
-{{/* ── TOUREN ──────────────────────────────────────────────── */}}
-<section class="touren" id="touren">
-  <div class="block-inner">
-    <div class="touren-head">
-      <h2>{{ i18n "navTouren" | default "Touren" }}</h2>
-      <p class="touren-sub">{{ i18n "tourenSub" | default "Planung, Route, Ausrüstung, und was schiefging" }}</p>
-    </div>
-    <div class="tour-grid">
-      <div class="tour-card tour-placeholder">
-        <div class="tour-img-wrap"><span class="tour-img-label">{{ i18n "fotoTour1" | default "FOTO · TOUR 01" }}</span></div>
-        <p class="tour-meta">{{ i18n "zeitraumKm" | default "[ZEITRAUM] · [KM]" }}</p>
-        <h3 class="tour-title">{{ i18n "tour1Title" | default "[TOUR 01 · ZIEL]" }}</h3>
-        <p class="tour-desc">{{ i18n "tour1Desc" | default "[Zwei Sätze zur Route und zu dem, was sie besonders gemacht hat.]" }}</p>
-      </div>
-      <div class="tour-card tour-placeholder">
-        <div class="tour-img-wrap"><span class="tour-img-label">{{ i18n "fotoTour2" | default "FOTO · TOUR 02" }}</span></div>
-        <p class="tour-meta">{{ i18n "zeitraumKm" | default "[ZEITRAUM] · [KM]" }}</p>
-        <h3 class="tour-title">{{ i18n "tour2Title" | default "[TOUR 02 · ZIEL]" }}</h3>
-        <p class="tour-desc">{{ i18n "tour2Desc" | default "[Zwei Sätze zur Route und zu dem, was sie besonders gemacht hat.]" }}</p>
-      </div>
-      <div class="tour-card tour-placeholder">
-        <div class="tour-img-wrap"><span class="tour-img-label">{{ i18n "fotoTour3" | default "FOTO · TOUR 03" }}</span></div>
-        <p class="tour-meta">{{ i18n "zeitraumKm" | default "[ZEITRAUM] · [KM]" }}</p>
-        <h3 class="tour-title">{{ i18n "tour3Title" | default "[TOUR 03 · ZIEL]" }}</h3>
-        <p class="tour-desc">{{ i18n "tour3Desc" | default "[Zwei Sätze zur Route und zu dem, was sie besonders gemacht hat.]" }}</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{{/* ── SHADOW / RIG ────────────────────────────────────────── */}}
 <section class="shadow" id="rig">
-  <div class="shadow-layout">
-    {{/* Left: one large photo */}}
-    <div class="shadow-photo">
-      <img src="/images/shadow-village.jpg"
-           alt="{{ i18n "rigPhoto1Alt" }}"
-           loading="lazy" decoding="async">
-    </div>
-
-    {{/* Right: text + specs */}}
-    <div class="shadow-content">
-      <p class="kicker">{{ $p.rig.kicker }}</p>
-      <h2>{{ $p.rig.heading }}</h2>
-      <div class="prose-body">{{ $p.rig.body | markdownify }}</div>
-      <dl class="rig-specs">
+  <div class="shadow-inner wrap">
+    <img class="shadow-photo" src="{{ "images/shadow-village.jpg" | relURL }}"
+         alt="{{ i18n "rigPhoto1Alt" }}" width="1600" height="2133"
+         loading="lazy" decoding="async">
+    <div>
+      <p class="eyebrow">{{ $p.rig.kicker }}</p>
+      <h2 class="shadow-title">{{ $p.rig.heading }}</h2>
+      <div class="shadow-body">{{ $p.rig.body | markdownify }}</div>
+      <dl class="specs">
         {{ range $p.rig.specs }}
-        <div>
-          <dt>{{ .k }}</dt>
-          <dd>{{ .v }}</dd>
-        </div>
+        <dt>{{ .k }}</dt>
+        <dd>{{ .v }}</dd>
         {{ end }}
       </dl>
     </div>
   </div>
 </section>
 
-{{/* ── KANÄLE / FOLLOW ─────────────────────────────────────── */}}
-<section class="follow" id="follow">
-  <div class="block-inner">
-    <h2>{{ $p.follow.heading }}</h2>
-    <p class="follow-intro">{{ $p.follow.intro }}</p>
-
-    <ul class="channels">
-      {{ range site.Params.social }}
-      <li>
-        {{ if .enabled }}
-        <a class="channel is-live" href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>
-          <span class="channel-name">{{ upper .name }}</span>
-          <span class="channel-state">{{ .url }}</span>
-        </a>
-        {{ else }}
-        <span class="channel is-soon" aria-disabled="true">
-          <span class="channel-name">{{ upper .name }}</span>
-          <span class="channel-state">{{ i18n "comingSoon" }}</span>
-        </span>
-        {{ end }}
-      </li>
+<section class="follow wrap" id="follow">
+  <h2 class="section-title">{{ $p.follow.heading }}</h2>
+  <p class="follow-intro">{{ $p.follow.intro }}</p>
+  <ul class="channels">
+    {{ range site.Params.social }}
+    <li class="channel">
+      <span class="channel-name">{{ i18n (printf "channel%s" .name) | default .name }}</span>
+      {{ if .enabled }}
+      <a class="channel-state" href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>{{ strings.TrimPrefix "mailto:" .url }}</a>
+      {{ else }}
+      <span class="channel-state">{{ i18n "comingSoon" }}</span>
       {{ end }}
-    </ul>
-  </div>
+    </li>
+    {{ end }}
+  </ul>
 </section>
 {{ end }}

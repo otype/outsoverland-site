@@ -1,10 +1,8 @@
 {{ define "main" }}
-<section class="prose-block page notfound">
-  <div class="block-inner">
-    <p class="kicker">404</p>
-    <h1>{{ i18n "notFoundTitle" }}</h1>
-    <p>{{ i18n "notFoundBody" }}</p>
-    <p><a class="textlink" href="{{ "" | relLangURL }}">{{ i18n "backHome" }}</a></p>
-  </div>
+<section class="page wrap notfound">
+  <p class="eyebrow">404</p>
+  <h1>{{ i18n "notFoundTitle" }}</h1>
+  <p>{{ i18n "notFoundBody" }}</p>
+  <p><a class="textlink" href="{{ "" | relLangURL }}">{{ i18n "backHome" }}</a></p>
 </section>
 {{ end }}

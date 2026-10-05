@@ -1,6 +1,7 @@
 ---
 title: "OUTS Overland"
 hero:
+  title: "Über und unter<br>der Sonne."
   tagline: "Overland-Touren quer durch Europa, Tourennotizen und ein schwarzer Jeep Gladiator namens Shadow, der immer den langen Weg außen herum findet."
 
 letters:

@@ -30,10 +30,9 @@
     {{ end }}
   {{ end }}
 
-  <!-- Barlow Condensed (headlines), Barlow (body), IBM Plex Mono (data) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  <!-- Self-hosted fonts (see VENDORED_ASSETS.md); preload the two the first screen needs. -->
+  <link rel="preload" href="{{ "fonts/barlow-condensed-700-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/barlow-400-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 

@@ -1,19 +1,12 @@
 <footer class="site-foot">
-  <div class="foot-inner">
-    <div class="foot-brand">
-      {{ partial "mark.html" . }}
-      <div>
-        <p class="foot-name">OUTS Overland</p>
-        <p class="foot-sub">{{ i18n "backronym" }}</p>
-      </div>
-    </div>
-
-    <nav class="foot-nav" aria-label="{{ i18n "footerNav" }}">
-      {{ range site.Menus.footer }}
-      <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
-      {{ end }}
-    </nav>
-
-    <p class="foot-legal">&copy; {{ now.Year }} {{ site.Params.author }}</p>
+  <div class="foot-brand">
+    {{ partial "mark.html" . }}
+    <span>{{ i18n "backronym" }}</span>
   </div>
+  <nav class="foot-nav" aria-label="{{ i18n "footerNav" }}">
+    {{ range site.Menus.footer }}
+    <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+    {{ end }}
+    <span class="foot-legal">&copy; {{ now.Year }} {{ site.Params.author }}</span>
+  </nav>
 </footer>
