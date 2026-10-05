@@ -2,11 +2,7 @@
 {{ $p := .Params }}
 
 <section class="hero">
-  <div class="sky" aria-hidden="true">
-    <div class="sun"></div>
-    <div class="horizon"></div>
-    <div class="ground"></div>
-  </div>
+  <div class="hero-bg" aria-hidden="true"></div>
 
   <div class="hero-inner">
     <p class="eyebrow">{{ $p.hero.eyebrow }}</p>
@@ -47,20 +43,32 @@
 </section>
 
 <section class="rig" id="rig">
-  <div class="block-inner rig-inner">
-    <div>
-      <p class="kicker">{{ $p.rig.kicker }}</p>
-      <h2>{{ $p.rig.heading }}</h2>
-      {{ $p.rig.body | markdownify }}
+  <div class="block-inner">
+    {{/* Photo gallery — two real shots of the rig in the field */}}
+    <div class="rig-photos" aria-label="{{ i18n "rigPhotos" | default "The rig in the field" }}">
+      <img src="/images/shadow-village.jpg"
+           alt="{{ i18n "rigPhoto1Alt" | default "Jeep Gladiator Shadow parked in a stone-village alley" }}"
+           loading="lazy" decoding="async">
+      <img src="/images/shadow-trail.jpg"
+           alt="{{ i18n "rigPhoto2Alt" | default "Jeep Gladiator Shadow climbing a high-altitude mountain trail" }}"
+           loading="lazy" decoding="async">
     </div>
-    <dl class="rig-specs">
-      {{ range $p.rig.specs }}
+
+    <div class="rig-inner">
       <div>
-        <dt>{{ .k }}</dt>
-        <dd>{{ .v }}</dd>
+        <p class="kicker">{{ $p.rig.kicker }}</p>
+        <h2>{{ $p.rig.heading }}</h2>
+        {{ $p.rig.body | markdownify }}
       </div>
-      {{ end }}
-    </dl>
+      <dl class="rig-specs">
+        {{ range $p.rig.specs }}
+        <div>
+          <dt>{{ .k }}</dt>
+          <dd>{{ .v }}</dd>
+        </div>
+        {{ end }}
+      </dl>
+    </div>
   </div>
 </section>
 
