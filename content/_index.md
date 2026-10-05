@@ -1,9 +1,7 @@
 ---
 title: "OUTS Overland"
 hero:
-  eyebrow: "Over · Under · The · Sun"
-  tagline: "Overlanding trips, trail notes and one Jeep Gladiator that keeps finding the long way round."
-  note: "The channels are being built right now. This is where they'll all come together."
+  tagline: "Overlanding trips across Europe, trail notes and one black Jeep Gladiator called Shadow that always finds the long way round."
 
 letters:
   - letter: "O"
@@ -36,19 +34,20 @@ about:
 
 rig:
   kicker: "The rig"
-  heading: "A Jeep Gladiator, slowly becoming itself"
+  heading: "Shadow"
   body: |
-    Every overland build is a running argument between capability, weight and
-    the money you'd rather spend on fuel. This one is somewhere in the middle of
-    that argument, and it will stay there.
+    Named by my sons: Shadow Trooper, Shadow for short. Black, like everything on it.
 
-    A full build sheet — what's fitted, what it cost, what I'd do differently —
-    goes up once there's enough of it to be worth reading.
+    Every overland build is a running argument between capability, weight and
+    the money you'd rather spend on fuel. This one is somewhere in the middle
+    of that argument, and it will stay there.
   specs:
     - k: "Platform"
-      v: "Jeep Gladiator"
-    - k: "Build"
-      v: "In progress"
+      v: "Jeep Gladiator 3.0L Overland"
+    - k: "Edition"
+      v: "80th Anniversary"
+    - k: "Colour"
+      v: "Black. Obviously."
     - k: "Home base"
       v: "Germany"
     - k: "Build sheet"
@@ -56,6 +55,6 @@ rig:
 
 follow:
   kicker: "Follow along"
-  heading: "The channels"
-  intro: "YouTube and Instagram are being set up now. When they're live, they'll be linked here first — this page stays the one address that always points at everything."
+  heading: "Channels"
+  intro: "YouTube and Instagram are being set up now. When they're live, they'll be linked here first."
 ---
