@@ -103,6 +103,32 @@ a:hover { color: var(--sonne); }
 .lang .lang-sep { color: var(--stein); }
 .lang a { min-width: 32px; }
 
+/* ── PANORAMA ─────────────────────────────────────────────── */
+/* Startseite: Header, Hero und Horizont liegen über der Bonaigua-Passstraße.
+   Der Verlauf hält den Titel lesbar und lässt das Foto unten ins Schwarz laufen,
+   wo Horizontlinie und Sonne sitzen. */
+
+.hero-band { position: relative; isolation: isolate; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%;
+}
+.hero-band::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(11 11 12 / .62) 0%, rgb(11 11 12 / .22) 50%, rgb(11 11 12 / 0) 80%),
+    linear-gradient(180deg, rgb(11 11 12 / .45) 0%, rgb(11 11 12 / .05) 30%, rgb(11 11 12 / 0) 75%, var(--schatten) 100%);
+}
+@media (max-width: 700px) {
+  .hero-bg { object-position: 28% 100%; }
+  /* Schmal steht der Text über den Wolken: oben gleichmäßig dunkler, Kehren unten frei. */
+  .hero-band::before {
+    background: linear-gradient(180deg, rgb(11 11 12 / .62) 0%, rgb(11 11 12 / .55) 55%, rgb(11 11 12 / 0) 78%, var(--schatten) 100%);
+  }
+}
+.hero-band .hero-tagline { color: var(--kalk); }
+.hero-band .horizon { padding-bottom: 8px; }
+
 /* ── HERO ────────────────────────────────────────────────── */
 
 .hero { padding-top: 72px; }

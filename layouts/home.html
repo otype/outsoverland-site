@@ -1,6 +1,15 @@
 {{ define "main" }}
 {{ $p := .Params }}
 
+{{ $hero := resources.Get "images/hero-bonaigua.jpg" }}
+{{ $sizes := slice 800 1280 1920 2560 }}
+<div class="hero-band">
+  <img class="hero-bg" alt="" aria-hidden="true" fetchpriority="high" decoding="async"
+       {{ with $hero.Resize "1920x webp q72" }}src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+       srcset="{{ range $i, $w := $sizes }}{{ if $i }}, {{ end }}{{ ($hero.Resize (printf "%dx webp q72" $w)).RelPermalink }} {{ $w }}w{{ end }}"
+       sizes="100vw">
+  {{ partial "header.html" . }}
+
 <section class="hero wrap">
   <p class="eyebrow">Over · Under · The · Sun</p>
   <h1 class="hero-title">{{ $p.hero.title | safeHTML }}</h1>
@@ -17,6 +26,7 @@
   <span class="horizon-line"></span>
   {{ partial "mark.html" . }}
   <span class="horizon-line horizon-line-end"></span>
+</div>
 </div>
 
 <section class="letters wrap" aria-label="{{ i18n "lettersLabel" }}">
