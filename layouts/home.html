@@ -6,25 +6,38 @@
   <div class="hero-bg" aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <p class="eyebrow">OVER · UNDER · THE · SUN</p>
-    <h1 class="hero-title">
-      {{- if eq site.Language.Lang "de" -}}
-        ÜBER UND UNTER<br>DER SONNE.
-      {{- else -}}
-        OVER AND UNDER<br>THE SUN.
-      {{- end -}}
-    </h1>
-    <p class="hero-tagline">{{ $p.hero.tagline }}</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#touren">{{ i18n "toTouren" }}</a>
-      <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
+    {{/* Left: eyebrow + H1 + tagline */}}
+    <div class="hero-text">
+      <p class="eyebrow">OVER · UNDER · THE · SUN</p>
+      <h1 class="hero-title">
+        {{- if eq site.Language.Lang "de" -}}
+          ÜBER UND UNTER<br>DER SONNE.
+        {{- else -}}
+          OVER AND UNDER<br>THE SUN.
+        {{- end -}}
+      </h1>
+      <p class="hero-tagline">{{ $p.hero.tagline }}</p>
+    </div>
+
+    {{/* Right: CTAs + big decorative logo */}}
+    <div class="hero-right">
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#touren">{{ i18n "toTouren" }}</a>
+        <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
+      </div>
+      <div class="hero-logo-deco" aria-hidden="true">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sonne: voller Halbkreis -->
+          <path d="M20 105 A80 80 0 0 1 180 105 Z" fill="currentColor"/>
+          <!-- Reflexionsstreifen -->
+          <rect x="22"  y="112" width="156" height="16" rx="8"  fill="currentColor"/>
+          <rect x="35"  y="136" width="130" height="14" rx="7"  fill="currentColor"/>
+          <rect x="52"  y="158" width="96"  height="12" rx="6"  fill="currentColor"/>
+          <rect x="68"  y="178" width="64"  height="10" rx="5"  fill="currentColor"/>
+        </svg>
+      </div>
     </div>
   </div>
-
-  <a class="scroll-cue" href="#letters" aria-label="{{ i18n "scrollDown" }}">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-  </a>
 </section>
 
 {{/* ── OUTS LETTERS ────────────────────────────────────────── */}}
@@ -42,7 +55,7 @@
   </div>
 </section>
 
-{{/* ── ÜBER UNS / ABOUT ────────────────────────────────────── */}}
+{{/* ── WORUM ES GEHT / ABOUT ───────────────────────────────── */}}
 <section class="about" id="about">
   <div class="block-inner">
     <p class="kicker">{{ $p.about.kicker }}</p>
@@ -85,33 +98,27 @@
 
 {{/* ── SHADOW / RIG ────────────────────────────────────────── */}}
 <section class="shadow" id="rig">
-  <div class="block-inner">
-    <div class="shadow-layout">
-      {{/* Left col: photo */}}
-      <div class="shadow-photos">
-        <img src="/images/shadow-village.jpg"
-             alt="{{ i18n "rigPhoto1Alt" }}"
-             loading="lazy" decoding="async">
-        <img src="/images/shadow-trail.jpg"
-             alt="{{ i18n "rigPhoto2Alt" }}"
-             loading="lazy" decoding="async">
-      </div>
+  <div class="shadow-layout">
+    {{/* Left: one large photo */}}
+    <div class="shadow-photo">
+      <img src="/images/shadow-village.jpg"
+           alt="{{ i18n "rigPhoto1Alt" }}"
+           loading="lazy" decoding="async">
+    </div>
 
-      {{/* Right col: text + specs */}}
-      <div class="shadow-content">
-        <p class="kicker">{{ $p.rig.kicker }}</p>
-        <h2>{{ $p.rig.heading }}</h2>
-        <div class="prose-body">{{ $p.rig.body | markdownify }}</div>
-
-        <dl class="rig-specs">
-          {{ range $p.rig.specs }}
-          <div>
-            <dt>{{ .k }}</dt>
-            <dd>{{ .v }}</dd>
-          </div>
-          {{ end }}
-        </dl>
-      </div>
+    {{/* Right: text + specs */}}
+    <div class="shadow-content">
+      <p class="kicker">{{ $p.rig.kicker }}</p>
+      <h2>{{ $p.rig.heading }}</h2>
+      <div class="prose-body">{{ $p.rig.body | markdownify }}</div>
+      <dl class="rig-specs">
+        {{ range $p.rig.specs }}
+        <div>
+          <dt>{{ .k }}</dt>
+          <dd>{{ .v }}</dd>
+        </div>
+        {{ end }}
+      </dl>
     </div>
   </div>
 </section>
