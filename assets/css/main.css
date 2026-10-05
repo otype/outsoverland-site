@@ -63,8 +63,16 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
 
 .site-head {
   position: absolute; inset: 0 0 auto 0; z-index: 10;
-  display: flex; align-items: center; gap: 2rem;
+  display: flex; justify-content: center;
+  padding: 0;
+}
+
+/* inner wrapper aligns header content with page content */
+.site-head-inner {
+  width: 100%;
+  max-width: calc(var(--wrap) + var(--pad) * 2);
   padding: clamp(.65rem, 1.5vw, .9rem) var(--pad);
+  display: flex; align-items: center; gap: 2rem;
 }
 
 .brand {
@@ -107,9 +115,8 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
 .hero {
   position: relative;
   min-height: 92svh;
-  display: flex; align-items: flex-end;
-  padding: 0 var(--pad) clamp(3rem, 7vw, 5rem);
-  padding-top: 3.5rem; /* clear the header — tight like the design */
+  display: flex; align-items: flex-start;
+  padding: 0;
   isolation: isolate;
 }
 
@@ -122,6 +129,7 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
   position: relative;
   width: 100%; max-width: calc(var(--wrap) + var(--pad) * 2);
   margin-inline: auto;
+  padding: clamp(4.5rem, 9vw, 7rem) var(--pad) clamp(3rem, 7vw, 5rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
