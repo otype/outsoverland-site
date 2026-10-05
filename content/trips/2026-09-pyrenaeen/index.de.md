@@ -23,6 +23,13 @@ tracks:
   - file: "refugi-pla-de-la-font-son.gpx"
     name: "Refugi del Pla de la Font → Son"
     note: "Geplante Piste · 19,6 km · 1.390–2.020 m"
+clips:
+  - file: "clips/hochweide.mp4"
+    poster: "clips/hochweide.jpg"
+    title: "Über die Hochweide, der Defender fährt voraus"
+  - file: "clips/kiefernpiste.mp4"
+    poster: "clips/kiefernpiste.jpg"
+    title: "Staubige Piste zwischen Kiefern"
 resources:
   - src: "01-genfer-see-camping.jpg"
     title: "Holzterrasse am TCS Camping Genève-Vésenaz, dahinter Bäume und Wohnwagen"

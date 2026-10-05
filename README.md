@@ -168,3 +168,15 @@ Shrink photos and strip their metadata (camera GPS!) before adding them:
 ```sh
 magick in.jpg -auto-orient -resize '1600x1600>' -strip -quality 82 out.jpg
 ```
+
+Short silent clips (front matter `clips`, files under `clips/` in the bundle)
+autoplay in a loop; keep them ~15 s and under 3 MB, without sound or metadata
+(phone videos carry GPS):
+
+```sh
+ffmpeg -ss 28 -t 14 -i in.mp4 -an -map_metadata -1 -vf "scale=1280:-2,fps=30,format=yuv420p" \
+  -c:v libx264 -preset slower -crf 25 -maxrate 1700k -bufsize 3400k -movflags +faststart clip.mp4
+ffmpeg -ss 1 -i clip.mp4 -frames:v 1 -q:v 4 clip.jpg   # poster
+```
+
+Needs ffmpeg with x264 — on Fedora: `sudo dnf swap ffmpeg-free ffmpeg --allowerasing` (RPM Fusion).

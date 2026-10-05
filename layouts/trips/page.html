@@ -22,10 +22,31 @@
     </dl>
   </div>
 
+  {{ with $p.clips }}
+  <section class="trip-clips wrap" aria-label="{{ i18n "clips" }}">
+    {{ range . }}
+    {{ $clip := . }}
+    {{ $poster := $.Resources.Get .poster }}
+    {{ with $.Resources.Get .file }}
+    <figure>
+      {{/* Stumm und in Schleife wie ein bewegtes Foto; controls, damit man anhalten kann. */}}
+      <video src="{{ .RelPermalink }}"{{ with $poster }} poster="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+             aria-label="{{ $clip.title }}" autoplay muted loop playsinline controls preload="metadata"></video>
+      <figcaption>{{ $clip.title }}</figcaption>
+    </figure>
+    {{ end }}
+    {{ end }}
+  </section>
+  <script>
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+      document.querySelectorAll('.trip-clips video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+  </script>
+  {{ end }}
+
   <section class="trip-gallery wrap" aria-label="{{ i18n "photos" }}">
     <h2 class="trip-sub">{{ i18n "photos" }}</h2>
     <ul class="gallery">
-      {{ range .Resources.ByType "image" }}
+      {{ range .Resources.Match "*.jpg" }}
       {{ $thumb := .Fill "800x600 q78 Center" }}
       <li>
         <a href="{{ .RelPermalink }}">

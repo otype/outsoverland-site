@@ -23,6 +23,13 @@ tracks:
   - file: "refugi-pla-de-la-font-son.gpx"
     name: "Refugi del Pla de la Font → Son"
     note: "Planned track · 19.6 km · 1,390–2,020 m"
+clips:
+  - file: "clips/hochweide.mp4"
+    poster: "clips/hochweide.jpg"
+    title: "Across the high pasture, the Defender leading"
+  - file: "clips/kiefernpiste.mp4"
+    poster: "clips/kiefernpiste.jpg"
+    title: "Dusty track through the pines"
 resources:
   - src: "01-genfer-see-camping.jpg"
     title: "Wooden deck at TCS Camping Genève-Vésenaz, trees and caravans behind"

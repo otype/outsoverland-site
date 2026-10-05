@@ -304,6 +304,14 @@ a.channel-state:hover { color: var(--sonne); }
 .trip-body p { margin: 16px 0 0; color: var(--nebel); }
 .trip-body p:first-child { margin-top: 0; color: var(--kalk); }
 
+.trip-clips {
+  padding-top: 96px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+}
+.trip-clips figure { margin: 0; }
+.trip-clips video { display: block; width: 100%; height: auto; background: var(--basalt); border: 1px solid var(--graphit); }
+.trip-clips figcaption { margin-top: 10px; font-family: var(--font-mono); font-size: 13px; color: var(--asche); }
+
 .trip-gallery, .trip-tracks { padding-top: 96px; }
 .trip-sub {
   margin: 0;
