@@ -2,8 +2,9 @@ baseURL = "https://outsoverland.com/"
 title = "OUTS Overland"
 enableRobotsTXT = true
 
-# No tags or categories yet — turn these back on when there's a blog.
-disableKinds = ["taxonomy", "term"]
+# No tags or categories yet. No section list pages either: the tour grid on
+# the homepage is the index for content/trips.
+disableKinds = ["taxonomy", "term", "section"]
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
@@ -40,6 +41,8 @@ defaultContentLanguageInSubdir = false
     languageCode = "en"
     weight = 1
     title = "OUTS Overland"
+    [languages.en.permalinks.page]
+      trips = "/trips/:slug/"
     [languages.en.params]
       description = "Over & Under The Sun — overlanding trips and trail notes from a Jeep Gladiator."
     [[languages.en.menus.footer]]
@@ -56,6 +59,8 @@ defaultContentLanguageInSubdir = false
     languageCode = "de"
     weight = 2
     title = "OUTS Overland"
+    [languages.de.permalinks.page]
+      trips = "/touren/:slug/"
     [languages.de.params]
       description = "Over & Under The Sun — Overlanding-Touren und Notizen von der Piste, unterwegs im Jeep Gladiator."
     [[languages.de.menus.footer]]

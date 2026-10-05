@@ -1,0 +1,55 @@
+---
+title: "Pyrenäen, Andorra, Spanien"
+slug: "pyrenaeen-andorra-spanien"
+date: 2026-09-05
+period: "05.–10.09.2026"
+summary: "Lange Anfahrt, aber es hat sich gelohnt: traumhafte Gebirgszüge, bestes Wetter und viel Strecke durch Andorra und die katalanischen Pyrenäen."
+cover: "10-pallars-hochweide.jpg"
+facts:
+  - k: "Ziel"
+    v: "Pyrenäen · Andorra · Spanien"
+  - k: "Zeitraum"
+    v: "5.–10. September 2026"
+  - k: "Hinweg"
+    v: "TCS Camping Genève-Vésenaz, Genfer See (CH)"
+  - k: "Rückweg"
+    v: "Venaus, Susatal, Piemont (IT)"
+  - k: "Reisegruppe"
+    v: "Jeep Gladiator „Shadow“ · Land Rover Defender D110"
+tracks:
+  - file: "andorra-val-d-aran.gpx"
+    name: "Andorra → Val d'Aran"
+    note: "Aufgezeichnet am 7.9. · rund 240 km · bis 2.080 m"
+  - file: "refugi-pla-de-la-font-son.gpx"
+    name: "Refugi del Pla de la Font → Son"
+    note: "Geplante Piste · 19,6 km · 1.390–2.020 m"
+resources:
+  - src: "01-genfer-see-camping.jpg"
+    title: "Holzterrasse am TCS Camping Genève-Vésenaz, dahinter Bäume und Wohnwagen"
+  - src: "02-genfer-see-abend.jpg"
+    title: "Abendrot über dem Genfer See, Boote liegen ruhig vor Anker"
+  - src: "03-genfer-see-ufer.jpg"
+    title: "Ufermauer des Campingplatzes, der Genfer See in der Dämmerung"
+  - src: "04-tcs-camping.jpg"
+    title: "Grüne Stele mit der Aufschrift TCS Camping Genève-Vésenaz an der Einfahrt"
+  - src: "05-bonaigua-kehren.jpg"
+    title: "Serpentinen der Passstraße zum Port de la Bonaigua, dahinter ein bewaldetes Tal"
+  - src: "06-bonaigua-hostal.jpg"
+    title: "Shadow und der Defender vor einem Steinhaus an der Bonaigua-Passstraße"
+  - src: "07-bonaigua-tal.jpg"
+    title: "Blick von der Bonaigua-Straße hinunter ins grüne Tal"
+  - src: "08-pallars-panorama.jpg"
+    title: "Weite Bergkämme im Pallars Sobirà unter blauem Himmel"
+  - src: "09-pallars-piste.jpg"
+    title: "Defender und Shadow auf einer Schotterpiste am Hang"
+  - src: "10-pallars-hochweide.jpg"
+    title: "Der Defender D110 und Shadow nebeneinander auf einer Hochweide, Wolken über den Gipfeln"
+  - src: "11-venaus-kapelle.jpg"
+    title: "Alte Steinkapelle mit Glockenturm in Venaus"
+  - src: "12-venaus-haus.jpg"
+    title: "Steinhaus mit Holzbalkonen und Blumenkästen in Venaus"
+---
+
+Lange Anfahrt … aber es hat sich gelohnt: traumhafte Gebirgszüge, bestes Wetter, viel Strecke! Die Pyrenäen sind ein Erlebnis.
+
+Aber schon der Hinweg mit Zwischenstopp am Genfer See war die Reise wert. Was für ein wunderschön gelegener Campingplatz, direkt am See!

@@ -43,8 +43,22 @@
     <p class="section-sub">{{ i18n "tourenSub" }}</p>
   </div>
   <div class="tour-grid">
-    {{ range seq 3 }}
-    {{ $n := printf "%02d" . }}
+    {{ $trips := (where site.RegularPages "Section" "trips").ByDate.Reverse }}
+    {{ range $trips }}
+    <article class="tour">
+      {{ with .Resources.Get .Params.cover }}
+      {{ $img := .Fill "800x600 q78 Center" }}
+      <img class="tour-img" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
+           alt="{{ .Title }}" loading="lazy" decoding="async">
+      {{ end }}
+      <p class="tour-meta">{{ .Params.period }}</p>
+      <h3 class="tour-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Summary }}</p>
+    </article>
+    {{ end }}
+    {{/* Platzhalter, bis drei echte Touren da sind. */}}
+    {{ range seq (sub 3 (len $trips)) }}
+    {{ $n := printf "%02d" (add . (len $trips)) }}
     <article class="tour">
       <div class="tour-img">[{{ i18n "photo" }} · {{ i18n "tour" }} {{ $n }}]</div>
       <p class="tour-meta">{{ i18n "tourMeta" }}</p>

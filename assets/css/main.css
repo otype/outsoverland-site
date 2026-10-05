@@ -195,11 +195,18 @@ a:hover { color: var(--sonne); }
   font-family: var(--font-mono); font-size: 13px; color: var(--asche); text-transform: uppercase;
 }
 .tour .tour-meta { font-family: var(--font-mono); font-size: 13px; letter-spacing: .08em; color: var(--sonne); }
+img.tour-img { display: block; width: 100%; height: auto; object-fit: cover; }
 .tour-title {
   margin: 0;
   font-family: var(--font-head); font-weight: 700; font-size: 34px; line-height: 1;
   text-transform: uppercase;
 }
+
+.tour-title a { text-decoration: none; }
+/* Ganze Kachel klickbar, ohne den Link um alles zu wickeln. */
+.tour:has(.tour-title a) { position: relative; }
+.tour-title a::after { content: ""; position: absolute; inset: 0; }
+.tour:has(.tour-title a:hover) .tour-title a { color: var(--sonne); }
 
 /* ── SHADOW ──────────────────────────────────────────────── */
 
@@ -274,6 +281,50 @@ a.channel-state:hover { color: var(--sonne); }
 .foot-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; font-size: 15px; }
 .foot-nav a { display: inline-flex; align-items: center; min-height: 44px; }
 .foot-legal { color: var(--asche); }
+
+/* ── TOUR-SEITE ──────────────────────────────────────────── */
+
+.trip-head { padding-top: 72px; }
+.trip-title {
+  margin: 20px 0 0;
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(48px, 9vw, 120px); line-height: .9; text-transform: uppercase;
+}
+
+.trip-cover { margin-top: 48px; }
+.trip-cover img { display: block; width: 100%; height: auto; border: 1px solid var(--graphit); }
+
+.trip-intro {
+  margin-top: 56px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px 56px;
+  align-items: start;
+}
+.trip-intro .specs { margin-top: 0; }
+.trip-body { font-size: 21px; line-height: 1.5; }
+.trip-body p { margin: 16px 0 0; color: var(--nebel); }
+.trip-body p:first-child { margin-top: 0; color: var(--kalk); }
+
+.trip-gallery, .trip-tracks { padding-top: 96px; }
+.trip-sub {
+  margin: 0;
+  font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(36px, 5vw, 56px); line-height: 1; text-transform: uppercase;
+}
+
+.gallery {
+  list-style: none; margin: 32px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;
+}
+.gallery a { display: block; border: 1px solid var(--graphit); }
+.gallery a:hover { border-color: var(--sonne); }
+.gallery img { display: block; width: 100%; height: auto; }
+
+.trip-note { margin: 16px 0 0; max-width: 580px; color: var(--nebel); }
+.track-note { display: block; margin-top: 4px; }
+
+.trip-back { margin-top: 64px; margin-bottom: 0; font-family: var(--font-mono); font-size: 14px; }
+.trip-back a { display: inline-flex; align-items: center; min-height: 44px; color: var(--sonne); text-decoration: none; }
+.trip-back a:hover { color: var(--kalk); }
 
 /* ── UNTERSEITEN (Impressum, Datenschutz, 404) ───────────── */
 

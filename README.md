@@ -154,15 +154,17 @@ risk. Keep it that way.
 third-party cookies and would drag a consent banner and a longer privacy
 policy into this project. Linking out, as the channel cards do, does not.
 
-## Growing this
+## Adding a tour
 
-The layout system is deliberately small. Adding a blog:
+Each tour is a page bundle under `content/trips/<folder>/`: `index.md`
+(English), `index.de.md` (German), plus its photos and GPX files. Copy
+`content/trips/2026-09-pyrenaeen/` as the template — front matter holds the
+date range, cover photo, fact table, GPX list and per-language alt text for
+every photo. URLs come from `slug`: `/trips/<slug>/` and `/de/touren/<slug>/`.
+The homepage grid picks tours up automatically, newest first.
+
+Shrink photos and strip their metadata (camera GPS!) before adding them:
 
 ```sh
-mkdir -p content/trips
-hugo new trips/first-trip.md
+magick in.jpg -auto-orient -resize '1600x1600>' -strip -quality 82 out.jpg
 ```
-
-That needs a `layouts/trips/list.html` and `single.html` (or just
-`layouts/list.html` / `layouts/single.html` to cover everything). Re-enable
-tags and categories by deleting the `disableKinds` line in `hugo.toml`.

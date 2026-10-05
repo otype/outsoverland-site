@@ -1,0 +1,55 @@
+---
+title: "Pyrenees, Andorra, Spain"
+slug: "pyrenees-andorra-spain"
+date: 2026-09-05
+period: "5–10 Sep 2026"
+summary: "A long drive down, but worth every kilometre: stunning ridgelines, perfect weather and plenty of miles through Andorra and the Catalan Pyrenees."
+cover: "10-pallars-hochweide.jpg"
+facts:
+  - k: "Destination"
+    v: "Pyrenees · Andorra · Spain"
+  - k: "Dates"
+    v: "5–10 September 2026"
+  - k: "Outbound stop"
+    v: "TCS Camping Genève-Vésenaz, Lake Geneva (CH)"
+  - k: "Return stop"
+    v: "Venaus, Susa Valley, Piedmont (IT)"
+  - k: "Convoy"
+    v: "Jeep Gladiator “Shadow” · Land Rover Defender D110"
+tracks:
+  - file: "andorra-val-d-aran.gpx"
+    name: "Andorra → Val d'Aran"
+    note: "Recorded 7 Sep · approx. 240 km · up to 2,080 m"
+  - file: "refugi-pla-de-la-font-son.gpx"
+    name: "Refugi del Pla de la Font → Son"
+    note: "Planned track · 19.6 km · 1,390–2,020 m"
+resources:
+  - src: "01-genfer-see-camping.jpg"
+    title: "Wooden deck at TCS Camping Genève-Vésenaz, trees and caravans behind"
+  - src: "02-genfer-see-abend.jpg"
+    title: "Sunset over Lake Geneva, boats lying still at anchor"
+  - src: "03-genfer-see-ufer.jpg"
+    title: "The campsite's lakeside wall, Lake Geneva at dusk"
+  - src: "04-tcs-camping.jpg"
+    title: "Green sign reading TCS Camping Genève-Vésenaz at the entrance"
+  - src: "05-bonaigua-kehren.jpg"
+    title: "Hairpins on the road up to the Port de la Bonaigua, a wooded valley beyond"
+  - src: "06-bonaigua-hostal.jpg"
+    title: "Shadow and the Defender outside a stone house on the Bonaigua pass road"
+  - src: "07-bonaigua-tal.jpg"
+    title: "View from the Bonaigua road down into the green valley"
+  - src: "08-pallars-panorama.jpg"
+    title: "Wide mountain ridges in the Pallars Sobirà under a blue sky"
+  - src: "09-pallars-piste.jpg"
+    title: "The Defender and Shadow on a gravel track along a slope"
+  - src: "10-pallars-hochweide.jpg"
+    title: "The Defender D110 and Shadow side by side on a high pasture, clouds above the peaks"
+  - src: "11-venaus-kapelle.jpg"
+    title: "Old stone chapel with a bell tower in Venaus"
+  - src: "12-venaus-haus.jpg"
+    title: "Stone house with wooden balconies and flower boxes in Venaus"
+---
+
+A long drive down … but it was worth it: stunning mountain ranges, the best weather, plenty of miles! The Pyrenees are something else.
+
+But even the way there, with a stopover on Lake Geneva, was worth the trip on its own. What a beautifully located campsite, right on the water!

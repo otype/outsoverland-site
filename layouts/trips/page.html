@@ -1,0 +1,63 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<article class="trip">
+  <header class="trip-head wrap">
+    <p class="eyebrow">{{ i18n "tour" }} · {{ $p.period }}</p>
+    <h1 class="trip-title">{{ .Title }}</h1>
+  </header>
+
+  {{ with .Resources.Get $p.cover }}
+  <div class="trip-cover wrap">
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+
+  <div class="trip-intro wrap">
+    <div class="trip-body">{{ .Content }}</div>
+    <dl class="specs">
+      {{ range $p.facts }}
+      <dt>{{ .k }}</dt>
+      <dd>{{ .v }}</dd>
+      {{ end }}
+    </dl>
+  </div>
+
+  <section class="trip-gallery wrap" aria-label="{{ i18n "photos" }}">
+    <h2 class="trip-sub">{{ i18n "photos" }}</h2>
+    <ul class="gallery">
+      {{ range .Resources.ByType "image" }}
+      {{ $thumb := .Fill "800x600 q78 Center" }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+               alt="{{ .Title }}" loading="lazy" decoding="async">
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+
+  {{ with $p.tracks }}
+  <section class="trip-tracks wrap">
+    <h2 class="trip-sub">{{ i18n "tracks" }}</h2>
+    <p class="trip-note">{{ i18n "tracksNote" }}</p>
+    <ul class="channels">
+      {{ range . }}
+      {{ $track := . }}
+      {{ with $.Resources.Get .file }}
+      <li class="channel">
+        <span>
+          <span class="channel-name">{{ $track.name }}</span>
+          <span class="channel-state track-note">{{ $track.note }}</span>
+        </span>
+        <a class="channel-state" href="{{ .RelPermalink }}" download>GPX ↓</a>
+      </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <p class="trip-back wrap"><a href="{{ "" | relLangURL }}#touren">← {{ i18n "allTours" }}</a></p>
+</article>
+{{ end }}
