@@ -110,7 +110,6 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
   display: flex; align-items: flex-end;
   padding: 0 var(--pad) clamp(3rem, 7vw, 5rem);
   padding-top: 3.5rem; /* clear the header — tight like the design */
-  overflow: hidden;
   isolation: isolate;
 }
 
@@ -361,16 +360,18 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 32rem;
+  align-items: stretch;
 }
 @media (max-width: 52rem) { .shadow-layout { grid-template-columns: 1fr; } }
 
 .shadow-photo {
   overflow: hidden;
+  height: 100%;
 }
 .shadow-photo img {
   width: 100%;
   height: 100%;
-  min-height: 28rem;
+  min-height: 32rem;
   object-fit: cover;
   display: block;
   filter: brightness(.88) saturate(.85);
