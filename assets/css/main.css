@@ -123,15 +123,20 @@ a:hover { color: var(--sonne); }
   .hero-bg { object-position: 28% 100%; }
 }
 
-.hero-panel {
-  width: fit-content; max-width: 100%;
-  padding: 28px 32px 32px;
-  background: rgb(11 11 12 / .62);
-  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+/* Halbtransparenter Block direkt hinter dem Text; bei Umbruch bekommt jede
+   Zeile ihren eigenen Block (box-decoration-break), dazwischen bleibt Foto. */
+.on-photo {
+  background: rgb(11 11 12 / .66);
+  padding: .12em .3em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
+.hero-band .eyebrow .on-photo { padding: 6px 10px; }
+.hero-band .hero-title { line-height: 1.24; }
+.hero-band .hero-title .on-photo { padding: 0 .12em; }
+.hero-band .hero-tagline { line-height: 1.75; }
+.hero-band .hero-tagline .on-photo { padding: .2em .45em; }
 .hero-band .btn-secondary { background: rgb(11 11 12 / .62); }
 .hero-band .horizon { padding-bottom: 8px; }
-@media (max-width: 520px) { .hero-panel { padding: 20px; margin-left: -8px; margin-right: -8px; max-width: none; } }
 
 /* ── HERO ────────────────────────────────────────────────── */
 

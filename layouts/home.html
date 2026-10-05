@@ -11,11 +11,10 @@
   {{ partial "header.html" . }}
 
 <section class="hero wrap">
-  <div class="hero-panel">
-    <p class="eyebrow">Over · Under · The · Sun</p>
-    <h1 class="hero-title">{{ $p.hero.title | safeHTML }}</h1>
-    <p class="hero-tagline">{{ $p.hero.tagline }}</p>
-  </div>
+  {{/* Jede Zeile auf eigenem Block, damit möglichst viel Panorama frei bleibt. */}}
+  <p class="eyebrow"><span class="on-photo">Over · Under · The · Sun</span></p>
+  <h1 class="hero-title"><span class="on-photo">{{ $p.hero.title | safeHTML }}</span></h1>
+  <p class="hero-tagline"><span class="on-photo">{{ $p.hero.tagline }}</span></p>
   <div class="hero-actions">
     <a class="btn btn-primary" href="#touren">{{ i18n "toTouren" }}</a>
     <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
