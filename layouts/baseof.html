@@ -3,7 +3,8 @@
 {{ partial "head.html" . }}
 <body>
   <a class="skip" href="#main">{{ i18n "skipToContent" }}</a>
-  {{ partial "header.html" . }}
+  {{/* Die Startseite setzt den Header selbst, über das Panorama. */}}
+  {{ if not .IsHome }}{{ partial "header.html" . }}{{ end }}
   <main id="main">
     {{ block "main" . }}{{ end }}
   </main>
