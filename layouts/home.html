@@ -11,8 +11,8 @@
   {{ partial "header.html" . }}
 
 <section class="hero wrap">
-  {{/* Jede Zeile auf eigenem Block, damit möglichst viel Panorama frei bleibt. */}}
-  <p class="eyebrow"><span class="on-photo">Over · Under · The · Sun</span></p>
+  {{/* Titel und Untertitel zeilenweise auf eigenem Block, damit möglichst viel Panorama frei bleibt. */}}
+  <p class="eyebrow">Over · Under · The · Sun</p>
   <h1 class="hero-title"><span class="on-photo">{{ $p.hero.title | safeHTML }}</span></h1>
   <p class="hero-tagline"><span class="on-photo">{{ $p.hero.tagline }}</span></p>
   <div class="hero-actions">

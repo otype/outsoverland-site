@@ -15,13 +15,14 @@ re-check only if you want a newer variable-font axis range or subset.
 | Barlow Condensed 700 | latin | `static/fonts/barlow-condensed-700-latin.woff2` | Google Fonts (gstatic v13) | 2026-10-05 | https://fonts.google.com/specimen/Barlow+Condensed |
 | Barlow 400 | latin | `static/fonts/barlow-400-latin.woff2` | Google Fonts (gstatic v13) | 2026-10-05 | https://fonts.google.com/specimen/Barlow |
 | IBM Plex Mono 400 | latin | `static/fonts/ibm-plex-mono-400-latin.woff2` | Google Fonts (gstatic v20) | 2026-10-05 | https://fonts.google.com/specimen/IBM+Plex+Mono |
+| IBM Plex Mono 700 | latin | `static/fonts/ibm-plex-mono-700-latin.woff2` | Google Fonts (gstatic v20) | 2026-10-05 | https://fonts.google.com/specimen/IBM+Plex+Mono |
 
 Only the `latin` subset is vendored: it covers English and German (ä ö ü ß, €, typographic quotes and dashes).
 
 ## How to re-check for a new version
 
 Fetch
-`https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400&family=IBM+Plex+Mono:wght@400&display=swap`
+`https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400&family=IBM+Plex+Mono:wght@400;700&display=swap`
 with a modern browser User-Agent, take the `/* latin */` `@font-face` blocks,
 compare their `unicode-range` against the `@font-face` rules at the top of
 `assets/css/main.css`, and re-download the `url(...)` targets if they changed.
