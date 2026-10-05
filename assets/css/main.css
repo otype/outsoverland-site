@@ -165,7 +165,7 @@ a:hover { color: var(--sonne); }
 
 /* ── HORIZONT: Linie über die volle Breite, Zeichen rechts eingesetzt ── */
 
-.horizon { margin-top: 64px; display: flex; align-items: center; }
+.horizon { margin-top: 112px; display: flex; align-items: center; }
 .horizon-line { flex: 1 1 0; height: 2px; background: var(--graphit); }
 .horizon-line-end { flex: 0 0 14%; }
 .horizon .mark { width: clamp(150px, 22vw, 280px); height: clamp(150px, 22vw, 280px); }
@@ -173,7 +173,7 @@ a:hover { color: var(--sonne); }
 /* ── OUTS-BUCHSTABEN ─────────────────────────────────────── */
 
 .letters {
-  padding-top: 72px;
+  padding-top: 16px;
   display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 40px 32px;
 }
 .letter { border-top: 1px solid var(--graphit); padding-top: 20px; }
