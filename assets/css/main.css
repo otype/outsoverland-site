@@ -64,7 +64,7 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
 .site-head {
   position: absolute; inset: 0 0 auto 0; z-index: 10;
   display: flex; align-items: center; gap: 2rem;
-  padding: clamp(.875rem, 2vw, 1.25rem) var(--pad);
+  padding: clamp(.65rem, 1.5vw, .9rem) var(--pad);
 }
 
 .brand {
@@ -109,7 +109,7 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
   min-height: 92svh;
   display: flex; align-items: flex-end;
   padding: 0 var(--pad) clamp(3rem, 7vw, 5rem);
-  padding-top: 5rem; /* clear the header */
+  padding-top: 3.5rem; /* clear the header — tight like the design */
   overflow: hidden;
   isolation: isolate;
 }
@@ -195,12 +195,15 @@ a:hover { color: var(--glut); text-decoration-color: currentColor; }
 }
 .btn-secondary:hover { border-color: var(--sonne); color: var(--sonne); }
 
-/* Large decorative sun logo in hero right col */
+/* Large decorative sun logo in hero right col.
+   The horizontal divider line between hero and letters runs THROUGH the
+   middle of this logo (the logo's mid-point = the border between sections).
+   margin-bottom pulls it down so exactly half overflows. */
 .hero-logo-deco {
   width: clamp(10rem, 22vw, 18rem);
   color: var(--sonne);
-  /* Sits at the bottom of the hero, partially overflows into the next section */
-  margin-bottom: clamp(-5rem, -10vw, -8rem);
+  /* Logo center = border line: pull down exactly half its own height */
+  margin-bottom: calc(clamp(10rem, 22vw, 18rem) / -2);
   position: relative; z-index: 2;
 }
 .hero-logo-deco svg { display: block; width: 100%; height: auto; }
@@ -242,10 +245,9 @@ h2 {
 .letters {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  /* Same dark background as hero — letters section bleeds into hero visually */
   background: var(--schatten);
-  /* Add clearance so the hero logo deco doesn't overlap text */
-  padding-top: clamp(3rem, 8vw, 6rem);
+  /* Clearance: top half of logo deco already in hero, bottom half here */
+  padding-top: calc(clamp(10rem, 22vw, 18rem) / 2 + clamp(1.5rem, 3vw, 2.5rem));
 }
 
 .letter-grid {
@@ -269,7 +271,7 @@ h2 {
 .letter-glyph {
   display: block;
   font-family: var(--font-head);
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(4rem, 8vw, 7rem);
   font-weight: 700; line-height: 1; letter-spacing: -.02em;
   color: var(--sonne);
   margin-bottom: .4rem;
@@ -278,11 +280,11 @@ h2 {
 .letter-word {
   margin: 0 0 .4rem;
   font-family: var(--font-head);
-  font-size: .82rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  font-size: 1rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
   color: var(--kalk);
 }
 
-.letter-line { margin: 0; font-size: .88rem; color: var(--asche); line-height: 1.6; }
+.letter-line { margin: 0; font-size: 1rem; color: var(--asche); line-height: 1.6; }
 
 /* ── ABOUT ───────────────────────────────────────────────── */
 
@@ -366,7 +368,9 @@ h2 {
   overflow: hidden;
 }
 .shadow-photo img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
+  min-height: 28rem;
   object-fit: cover;
   display: block;
   filter: brightness(.88) saturate(.85);

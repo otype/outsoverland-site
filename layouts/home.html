@@ -26,15 +26,26 @@
         <a class="btn btn-secondary" href="#rig">{{ i18n "shadowAnsehen" }}</a>
       </div>
       <div class="hero-logo-deco" aria-hidden="true">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <!-- Sonne: voller Halbkreis -->
-          <path d="M20 105 A80 80 0 0 1 180 105 Z" fill="currentColor"/>
-          <!-- Reflexionsstreifen -->
-          <rect x="22"  y="112" width="156" height="16" rx="8"  fill="currentColor"/>
-          <rect x="35"  y="136" width="130" height="14" rx="7"  fill="currentColor"/>
-          <rect x="52"  y="158" width="96"  height="12" rx="6"  fill="currentColor"/>
-          <rect x="68"  y="178" width="64"  height="10" rx="5"  fill="currentColor"/>
-        </svg>
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!--
+              Sonnen-Icon: Kreis r=90, Mitte 100,100.
+              Obere Hälfte: Halbkreis (Sonne).
+              Untere Hälfte: 4 eckige Streifen, durch Kreis geclippt.
+              Der Äquator = exakt Mitte = die Trennlinie zwischen Hero + Letters.
+            -->
+            <clipPath id="deco-clip">
+              <circle cx="100" cy="100" r="90"/>
+            </clipPath>
+            <!-- Halbkreis Sonne (obere Hälfte) -->
+            <path d="M10 100 A90 90 0 0 1 190 100 Z" fill="currentColor"/>
+            <!-- 4 eckige Streifen, durch Kreis geclippt -->
+            <g clip-path="url(#deco-clip)">
+              <rect x="10" y="107" width="180" height="16" fill="currentColor"/>
+              <rect x="10" y="131" width="180" height="14" fill="currentColor"/>
+              <rect x="10" y="153" width="180" height="13" fill="currentColor"/>
+              <rect x="10" y="174" width="180" height="12" fill="currentColor"/>
+            </g>
+          </svg>
       </div>
     </div>
   </div>
