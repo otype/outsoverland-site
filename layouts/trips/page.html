@@ -1,0 +1,84 @@
+{{ define "main" }}
+{{ $p := .Params }}
+<article class="trip">
+  <header class="trip-head wrap">
+    <p class="eyebrow">{{ i18n "tour" }} · {{ $p.period }}</p>
+    <h1 class="trip-title">{{ .Title }}</h1>
+  </header>
+
+  {{ with .Resources.Get $p.cover }}
+  <div class="trip-cover wrap">
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+
+  <div class="trip-intro wrap">
+    <div class="trip-body">{{ .Content }}</div>
+    <dl class="specs">
+      {{ range $p.facts }}
+      <dt>{{ .k }}</dt>
+      <dd>{{ .v }}</dd>
+      {{ end }}
+    </dl>
+  </div>
+
+  {{ with $p.clips }}
+  <section class="trip-clips wrap" aria-label="{{ i18n "clips" }}">
+    {{ range . }}
+    {{ $clip := . }}
+    {{ $poster := $.Resources.Get .poster }}
+    {{ with $.Resources.Get .file }}
+    <figure>
+      {{/* Stumm und in Schleife wie ein bewegtes Foto; controls, damit man anhalten kann. */}}
+      <video src="{{ .RelPermalink }}"{{ with $poster }} poster="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+             aria-label="{{ $clip.title }}" autoplay muted loop playsinline controls preload="metadata"></video>
+      <figcaption>{{ $clip.title }}</figcaption>
+    </figure>
+    {{ end }}
+    {{ end }}
+  </section>
+  <script>
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+      document.querySelectorAll('.trip-clips video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+  </script>
+  {{ end }}
+
+  <section class="trip-gallery wrap" aria-label="{{ i18n "photos" }}">
+    <h2 class="trip-sub">{{ i18n "photos" }}</h2>
+    <ul class="gallery">
+      {{ range .Resources.Match "*.jpg" }}
+      {{ $thumb := .Fill "800x600 q78 Center" }}
+      <li>
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+               alt="{{ .Title }}" loading="lazy" decoding="async">
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+
+  {{ with $p.tracks }}
+  <section class="trip-tracks wrap">
+    <h2 class="trip-sub">{{ i18n "tracks" }}</h2>
+    <p class="trip-note">{{ i18n "tracksNote" }}</p>
+    <ul class="channels">
+      {{ range . }}
+      {{ $track := . }}
+      {{ with $.Resources.Get .file }}
+      <li class="channel">
+        <span>
+          <span class="channel-name">{{ $track.name }}</span>
+          <span class="channel-state track-note">{{ $track.note }}</span>
+        </span>
+        <a class="channel-state" href="{{ .RelPermalink }}" download>GPX ↓</a>
+      </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  <p class="trip-back wrap"><a href="{{ "" | relLangURL }}#touren">← {{ i18n "allTours" }}</a></p>
+</article>
+{{ end }}
