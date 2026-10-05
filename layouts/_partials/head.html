@@ -1,8 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#FBF6EC">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0B0B0C">
 
   {{ $title := cond .IsHome site.Title (printf "%s — %s" .Title site.Title) }}
   {{ $desc := or .Description site.Params.description }}
@@ -30,10 +30,11 @@
     {{ end }}
   {{ end }}
 
-  <!-- Archivo is self-hosted (see static/fonts/, VENDORED_ASSETS.md) instead of
-       loaded from Google Fonts, to avoid sending visitor IPs to Google on every
-       page load. -->
-  <link rel="preload" href="{{ "fonts/archivo-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <!-- Barlow Condensed (headlines), Barlow (body), IBM Plex Mono (data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 
   {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint "sha256" }}
