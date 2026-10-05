@@ -168,9 +168,11 @@ a:hover { color: var(--sonne); }
 .section-sub { margin: 0; font-family: var(--font-mono); font-size: 14px; color: var(--asche); }
 
 /* ── WORUM ES GEHT ───────────────────────────────────────── */
-/* Nicht im Design-Artboard; gebaut aus dessen Bausteinen (Überzeile, Sektionstitel, Fließtext wie bei Shadow). */
+/* Nicht im Design-Artboard; gebaut aus dessen Bausteinen. Basalt-Fläche wie Shadow,
+   damit sich Schwarz und Anthrazit abwechseln. */
 
-.about { padding-top: 112px; }
+.about { margin-top: 112px; background: var(--basalt); }
+.about-inner { padding-top: 88px; padding-bottom: 88px; }
 .about .section-title { margin-top: 12px; }
 .about-body { margin-top: 24px; max-width: 680px; }
 .about-body p { margin: 16px 0 0; color: var(--nebel); }

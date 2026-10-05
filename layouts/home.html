@@ -29,10 +29,12 @@
   {{ end }}
 </section>
 
-<section class="about wrap" id="about">
-  <p class="eyebrow">{{ $p.about.kicker }}</p>
-  <h2 class="section-title">{{ $p.about.heading }}</h2>
-  <div class="about-body">{{ $p.about.body | markdownify }}</div>
+<section class="about" id="about">
+  <div class="about-inner wrap">
+    <p class="eyebrow">{{ $p.about.kicker }}</p>
+    <h2 class="section-title">{{ $p.about.heading }}</h2>
+    <div class="about-body">{{ $p.about.body | markdownify }}</div>
+  </div>
 </section>
 
 <section class="touren wrap" id="touren">
