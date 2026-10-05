@@ -54,6 +54,18 @@ rig:
     - k: "Build sheet"
       v: "Coming soon"
 
+me:
+  kicker: "About me"
+  heading: "Hans"
+  photoAlt: "Hans in glasses and a grey T-shirt, a green valley and mountain peaks behind him on the Bonaigua pass road in the Pyrenees"
+  body: |
+    I'm Hans. I drive Shadow and write down what happens on the trips:
+    the routes, the gear and the breakdowns in between.
+
+    Home is Germany, and I rarely travel alone — on the first big trip, to
+    the Pyrenees, a friend came along in his Land Rover Defender D110,
+    usually leading the way when the track got narrow.
+
 follow:
   kicker: "Follow along"
   heading: "Channels"
