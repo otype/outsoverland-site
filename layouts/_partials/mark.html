@@ -1,8 +1,7 @@
-{{- /* OUTS-Zeichen: Sonne über dem Horizont, darunter vier schmaler werdende Spiegel-Balken. Farbe über currentColor. */ -}}
+{{- /* OUTS-Zeichen: Sonne über dem Horizont, darunter vier Spiegel-Balken. Die Balkenenden
+       folgen dem Kreis (Mitte 60/60, r 44), so bleibt der Umriss rund statt eckig.
+       Farbe über currentColor. */ -}}
 <svg class="mark" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
   <path d="M16 58 A44 44 0 0 1 104 58 Z" fill="currentColor"/>
-  <rect x="16.6" y="66" width="86.8" height="7" fill="currentColor"/>
-  <rect x="20.8" y="79" width="78.4" height="6" fill="currentColor"/>
-  <rect x="29.3" y="91" width="61.4" height="5" fill="currentColor"/>
-  <rect x="42.8" y="101" width="34.4" height="3" fill="currentColor"/>
+  <path d="M16.41 66H103.59A44 44 0 0 1 102.04 73H17.96A44 44 0 0 1 16.41 66Z M20.31 79H99.69A44 44 0 0 1 96.21 85H23.79A44 44 0 0 1 20.31 79Z M28.78 91H91.22A44 44 0 0 1 85.3 96H34.7A44 44 0 0 1 28.78 91Z M44.03 101H75.97A44 44 0 0 1 60.09 103.9999H59.91A44 44 0 0 1 44.03 101Z" fill="currentColor"/>
 </svg>
