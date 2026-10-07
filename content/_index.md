@@ -73,5 +73,5 @@ me:
 follow:
   kicker: "Follow along"
   heading: "Channels"
-  intro: "YouTube and Instagram are being set up now. When they're live, they'll be linked here first."
+  intro: "Instagram is live at @outsoverland. YouTube is being set up now and will be linked here first."
 ---

@@ -73,5 +73,5 @@ me:
 follow:
   kicker: "Dranbleiben"
   heading: "Kanäle"
-  intro: "YouTube und Instagram sind im Aufbau. Sobald sie live sind, stehen sie zuerst hier."
+  intro: "Instagram ist live unter @outsoverland. YouTube ist im Aufbau und steht zuerst hier, sobald es live ist."
 ---
