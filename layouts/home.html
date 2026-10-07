@@ -116,7 +116,7 @@
     <li class="channel">
       <span class="channel-name">{{ i18n (printf "channel%s" .name) | default .name }}</span>
       {{ if .enabled }}
-      <a class="channel-state" href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>{{ strings.TrimPrefix "mailto:" .url }}</a>
+      <a class="channel-state" href="{{ .url }}"{{ if hasPrefix .url "http" }} rel="me noopener" target="_blank"{{ end }}>{{ replaceRE `^(mailto:|https?://(www\.)?)` "" .url | strings.TrimSuffix "/" }}</a>
       {{ else }}
       <span class="channel-state">{{ i18n "comingSoon" }}</span>
       {{ end }}
