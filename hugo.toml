@@ -13,7 +13,7 @@ defaultContentLanguageInSubdir = false
   # Shown in <meta> tags and structured data.
   author = "Hans"
   # Swap in a 1200x630 image at static/img/ when you have one.
-  ogImage = "img/og.png"
+  ogImage = "img/og.jpg"
 
 # Social channels. Set `enabled = true` and fill in `url` as each account
 # goes live; until then the card renders as "coming soon".
