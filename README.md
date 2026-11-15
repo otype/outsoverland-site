@@ -164,7 +164,7 @@ Then Settings → Pages → Custom domain → `outsoverland.com`, wait for the D
 
 - [ ] **Legal notice and privacy text.** `content/legal-notice.md`, `content/legal-notice.de.md` and `content/privacy*.md` still contain `TODO` markers, and they show on the live pages. An Impressum is legally required for a site operated from Germany (§ 5 DDG), in both languages.
 - [ ] **Review the privacy text** whenever the site changes: it is accurate for the site as built (no cookies, no analytics, self-hosted fonts).
-- [ ] **Link preview image.** Add `static/img/og.png` (1200×630). `hugo.toml` already points at it, and the meta tag appears once the file exists.
+- [x] **Link preview image.** `static/img/og.jpg` (1200×630, cropped from the hero photo). `hugo.toml` points at it (`params.ogImage`), and the `og:image` meta tag appears because the file exists. Swap in a designed image any time by replacing the file.
 - [x] Contact address is set in `hugo.toml` (`params.social`).
 
 ## 🧠 Notes on choices
